@@ -72,9 +72,8 @@ public class ReportFilterViewModel : INotifyPropertyChanged
         if (SelectedReportType == null || string.IsNullOrWhiteSpace(SelectedCity))
             return;
 
-        // Navega pasando los parámetros seleccionados
-        var route = $"///ReportsPage?reportName={SelectedReportType.Name}&city={SelectedCity}&from={DateFrom:yyyy-MM-dd}&to={DateTo:yyyy-MM-dd}"; 
-        await Shell.Current.GoToAsync(route);
+        // Navega pasando los parámetros seleccionados        
+        await Shell.Current.GoToAsync($"ReportsPage?reportName={SelectedReportType.Name}&city={SelectedCity}&from={DateFrom:yyyy-MM-dd}&to={DateTo:yyyy-MM-dd}");
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
