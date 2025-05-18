@@ -8,45 +8,31 @@ namespace AppReports.Views;
 [QueryProperty(nameof(DateTo), "to")]
 public partial class ReportsPage : ContentPage
 {
-	private string _reportName;
-    public string ReportName
-    {
-        get => _reportName;
-        set
-        {
-            _reportName = value;
-            Title = value ?? "Reportes";
-            UpdateInfoLabel();
-        }
-    }
+	string _reportName, _city, _dateFrom, _dateTo;
 
-	private string _city;
-    public string City
-    {
-        get => _city;
-        set { _city = value; UpdateInfoLabel(); }
-    }
-    private string _dateFrom;
-    public string DateFrom
-    {
-        get => _dateFrom;
-        set { _dateFrom = value; UpdateInfoLabel(); }
-    }
-    private string _dateTo;
-    public string DateTo
-    {
-        get => _dateTo;
-        set { _dateTo = value; UpdateInfoLabel(); }
-    }
+	public string ReportName
+	{
+		get => _reportName;
+		set { _reportName = value; Title = value; }
+	}
+	public string City { get => _city; set => _city = value; }
+	public string DateFrom { get => _dateFrom; set => _dateFrom = value; }
+	public string DateTo { get => _dateTo; set => _dateTo = value; }
 
 	public ReportsPage()
 	{
 		InitializeComponent();
 	}
 
-	void UpdateInfoLabel()
-    {
-        if (InfoLabel != null)
-            InfoLabel.Text = $"Reporte: {ReportName}\nCiudad: {City}\nFechas: {DateFrom} a {DateTo}";
-    }
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		// Crea el ViewModel solo cuando los parámetros están listos
+		if (!string.IsNullOrEmpty(ReportName) && !string.IsNullOrEmpty(City) && !string.IsNullOrEmpty(DateFrom) && !string.IsNullOrEmpty(DateTo))
+		{
+			DateTime dateFrom = DateTime.Parse(DateFrom);
+			DateTime dateTo = DateTime.Parse(DateTo);
+			BindingContext = new ReportsViewModel(ReportName, City, dateFrom, dateTo);
+		}
+	}
 }

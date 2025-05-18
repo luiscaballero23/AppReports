@@ -30,7 +30,7 @@ public class ReportFilterViewModel : INotifyPropertyChanged
         set { _selectedCity = value; OnPropertyChanged(); }
     }
 
-    private DateTime _dateFrom = DateTime.Today.AddDays(-7);
+    private DateTime _dateFrom = DateTime.Parse("2025-05-01");
     public DateTime DateFrom
     {
         get => _dateFrom;
