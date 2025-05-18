@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppReports.Views.ReportsPage"
+             Title="Reportes"
+             BackgroundColor="White">
+    <VerticalStackLayout Padding="24">
+        <Label 
+            Text="{Binding .}"
+            x:Name="InfoLabel"
+            FontSize="18"
+            TextColor="#24292F"
+            HorizontalOptions="Center"/>
+        <!-- Aquí luego va la CollectionView o DataGrid de reportes filtrados -->
+    </VerticalStackLayout>
+</ContentPage>

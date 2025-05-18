@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppReports.ViewModels"
+             x:Class="AppReports.Views.LoginPage"
+             Title="LoginPage"
+             BackgroundColor="White">
+       <ContentPage.BindingContext>
+              <vm:LoginViewModel/>
+       </ContentPage.BindingContext>
+
+       <ScrollView>
+              <VerticalStackLayout Padding="32,32,32,0"
+                                   Spacing="20">
+
+                     <!-- Banner -->
+                     <Image Source="login_banner.png"
+                            HeightRequest="160"
+                            HorizontalOptions="Center"
+                            Margin="0,0,0,8"/>
+
+                     <!-- Formulario login -->
+                     <Frame CornerRadius="20"
+                            Padding="20,16"
+                            HasShadow="True"
+                            BackgroundColor="#F9F9F9">
+
+                            <VerticalStackLayout Spacing="14">
+                                   <!-- Campo usuario -->
+                                   <Frame CornerRadius="12"
+                                          Padding="0,4"
+                                          HasShadow="False"
+                                          BackgroundColor="White"
+                                          HeightRequest="50">
+                                          <HorizontalStackLayout Padding="10"
+                                                                 VerticalOptions="Center"
+                                                                 HeightRequest="42">
+                                                 <Image Source="user_icon.png"
+                                                        WidthRequest="24"
+                                                        HeightRequest="24"
+                                                        VerticalOptions="Center"/>
+                                                 <Entry Placeholder="Usuario"
+                                                        Text="{Binding Username}"
+                                                        BackgroundColor="Transparent"
+                                                        Margin="10,0,0,0"
+                                                        HeightRequest="36"
+                                                        VerticalOptions="Center"
+                                                        VerticalTextAlignment="Center"/>
+                                          </HorizontalStackLayout>
+                                   </Frame>
+
+                                   <!-- Campo contraseña -->
+                                   <Frame CornerRadius="12"
+                                          Padding="0"
+                                          HasShadow="False"
+                                          BackgroundColor="White"
+                                          HeightRequest="50">
+                                          <HorizontalStackLayout Padding="10"
+                                                                 VerticalOptions="Center">
+                                                 <Image Source="key_icon.png"
+                                                        WidthRequest="24"
+                                                        HeightRequest="24"
+                                                        VerticalOptions="Center"/>
+                                                 <Entry Placeholder="Contraseña"
+                                                        IsPassword="True"
+                                                        Text="{Binding Password}"
+                                                        BackgroundColor="Transparent"
+                                                        Margin="10,0,0,0"
+                                                        HeightRequest="36"
+                                                        VerticalOptions="Center"
+                                                        VerticalTextAlignment="Center"/>
+                                          </HorizontalStackLayout>
+                                   </Frame>
+
+                                   <!-- Botón iniciar sesión -->
+                                   <Button Text="INICIAR SESIÓN"
+                                           Command="{Binding LoginCommand}"
+                                           BackgroundColor="#3588F4"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           CornerRadius="12"
+                                           HeightRequest="50"
+                                           HorizontalOptions="FillAndExpand"/>
+
+                                   <!-- Mensaje de error -->
+                                   <Label Text="{Binding Message}"
+                                          TextColor="Red"
+                                          IsVisible="{Binding ShowMessage}"
+                                          HorizontalOptions="Center"
+                                          FontSize="14"/>
+
+                                   <!-- Olvidaste tu contraseña -->
+                                   <Label Text="¿Olvidaste tu contraseña?"
+                                          HorizontalOptions="Center"
+                                          FontSize="14"
+                                          TextColor="#757575"/>
+                            </VerticalStackLayout>
+                     </Frame>
+              </VerticalStackLayout>
+       </ScrollView>
+</ContentPage>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppReports.ViewModels"            
+             x:Class="AppReports.Views.ReportFilterPage"
+             Title="Filtrar Reportes"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <vm:ReportFilterViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="32,48,32,0" Spacing="22">
+            <Label Text="Seleccione el tipo de reporte"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#24292F"
+                   Margin="0,0,0,6"/>
+
+            <Picker Title="Tipo de reporte"
+                    ItemsSource="{Binding ReportTypes}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedReportType}" />
+
+            <Label Text="Ciudad"
+                   FontSize="16"
+                   Margin="0,12,0,6"/>
+
+            <Picker Title="Ciudad"
+                    ItemsSource="{Binding Cities}"
+                    SelectedItem="{Binding SelectedCity}" />
+
+            <Label Text="Rango de fechas"
+                   FontSize="16"
+                   Margin="0,12,0,6"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <VerticalStackLayout>
+                    <Label Text="Desde:" FontSize="14"/>
+                    <DatePicker Date="{Binding DateFrom}" Format="yyyy-MM-dd"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label Text="Hasta:" FontSize="14"/>
+                    <DatePicker Date="{Binding DateTo}" Format="yyyy-MM-dd"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <Button Text="CONSULTAR"
+                    Command="{Binding SearchCommand}"
+                    BackgroundColor="#3588F4"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    CornerRadius="12"
+                    HeightRequest="52"
+                    Margin="0,24,0,0"
+                    HorizontalOptions="FillAndExpand"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
