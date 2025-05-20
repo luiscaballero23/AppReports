@@ -52,8 +52,8 @@ public class LoginViewModel : INotifyPropertyChanged
         ShowMessage = false;
         var user = await _apiService.LoginAsync(Username, Password);
         if (user != null)
-        {
-            await Shell.Current.GoToAsync("///ReportFilterPage");
+        {            
+            await Shell.Current.GoToAsync("//ReportTypeListPage");
         }
         else
         {

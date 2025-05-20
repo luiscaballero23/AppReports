@@ -12,17 +12,6 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="32,48,32,0" Spacing="22">
-            <Label Text="Seleccione el tipo de reporte"
-                   FontSize="18"
-                   FontAttributes="Bold"
-                   TextColor="#24292F"
-                   Margin="0,0,0,6"/>
-
-            <Picker Title="Tipo de reporte"
-                    ItemsSource="{Binding ReportTypes}"
-                    ItemDisplayBinding="{Binding Name}"
-                    SelectedItem="{Binding SelectedReportType}" />
-
             <Label Text="Ciudad"
                    FontSize="16"
                    Margin="0,12,0,6"/>

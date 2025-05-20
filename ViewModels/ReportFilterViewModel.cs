@@ -3,26 +3,15 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using AppReports.Models;
 
 namespace AppReports.ViewModels;
 
-public class ReportType
-{
-    public string Name { get; set; }
-}
-
 public class ReportFilterViewModel : INotifyPropertyChanged
-{
-    public ObservableCollection<ReportType> ReportTypes { get; set; }
+{   
+    public string ReportName { get; set; }
     public ObservableCollection<string> Cities { get; set; }
-
-    private ReportType _selectedReportType;
-    public ReportType SelectedReportType
-    {
-        get => _selectedReportType;
-        set { _selectedReportType = value; OnPropertyChanged(); }
-    }
-
+    
     private string _selectedCity;
     public string SelectedCity
     {
@@ -47,14 +36,7 @@ public class ReportFilterViewModel : INotifyPropertyChanged
     public ICommand SearchCommand { get; }
 
     public ReportFilterViewModel()
-    {
-        // Mock data
-        ReportTypes = new ObservableCollection<ReportType>
-            {
-                new ReportType { Name = "Taquilla" },
-                new ReportType { Name = "Por Salas" },
-                new ReportType { Name = "General" }
-            };
+    {        
         Cities = new ObservableCollection<string>
             {
                 "Bogotá",
@@ -69,11 +51,11 @@ public class ReportFilterViewModel : INotifyPropertyChanged
     private async void OnSearch()
     {
         // Valida que todos los campos estén llenos si quieres
-        if (SelectedReportType == null || string.IsNullOrWhiteSpace(SelectedCity))
+        if (string.IsNullOrWhiteSpace(SelectedCity))
             return;
-
+        
         // Navega pasando los parámetros seleccionados        
-        await Shell.Current.GoToAsync($"ReportsPage?reportName={SelectedReportType.Name}&city={SelectedCity}&from={DateFrom:yyyy-MM-dd}&to={DateTo:yyyy-MM-dd}");
+        await Shell.Current.GoToAsync($"ReportsPage?reportName={ReportName}&city={SelectedCity}&from={DateFrom:yyyy-MM-dd}&to={DateTo:yyyy-MM-dd}");
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

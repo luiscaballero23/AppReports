@@ -12,8 +12,8 @@
         Shell.NavBarIsVisible="False"/>
 
     <ShellContent
-        Title="Filtros"
-        ContentTemplate="{DataTemplate views:ReportFilterPage}"
-        Route="ReportFilterPage"
-        Shell.NavBarIsVisible="True" />    
+        Title="Reportes"
+        ContentTemplate="{DataTemplate views:ReportTypeListPage}"
+        Route="ReportTypeListPage"
+        Shell.NavBarIsVisible="True" />   
 </Shell>

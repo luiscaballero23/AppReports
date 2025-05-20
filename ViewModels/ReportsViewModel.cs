@@ -28,7 +28,7 @@ public class ReportsViewModel : INotifyPropertyChanged
         foreach (var report in allReports)
         {
             if ((string.IsNullOrEmpty(city) || report.City == city)
-                && report.Date >= DateTime.Now.AddMonths(-1) && report.Date <= DateTime.Now)
+                && report.Date >= dateFrom && report.Date <= dateTo)
             {
                 Reports.Add(report);
             }
