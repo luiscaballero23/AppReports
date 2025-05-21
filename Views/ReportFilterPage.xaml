@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:AppReports.ViewModels"            
              x:Class="AppReports.Views.ReportFilterPage"
              Title="Filtrar Reportes"
-             BackgroundColor="White">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ContentPage.BindingContext>
         <vm:ReportFilterViewModel />

@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:AppReports.ViewModels"
              x:Class="AppReports.Views.LoginPage"
              Title="LoginPage"
-             BackgroundColor="White">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
        <ContentPage.BindingContext>
               <vm:LoginViewModel/>
        </ContentPage.BindingContext>
@@ -30,7 +30,7 @@
                                    <Frame CornerRadius="12"
                                           Padding="0,4"
                                           HasShadow="False"
-                                          BackgroundColor="White"
+                                          BackgroundColor="{DynamicResource PageBackgroundColor}"
                                           HeightRequest="50">
                                           <HorizontalStackLayout Padding="10"
                                                                  VerticalOptions="Center"
@@ -53,7 +53,7 @@
                                    <Frame CornerRadius="12"
                                           Padding="0"
                                           HasShadow="False"
-                                          BackgroundColor="White"
+                                          BackgroundColor="{DynamicResource PageBackgroundColor}"
                                           HeightRequest="50">
                                           <HorizontalStackLayout Padding="10"
                                                                  VerticalOptions="Center">
