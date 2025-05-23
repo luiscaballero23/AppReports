@@ -12,18 +12,19 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="32,48,32,0" Spacing="22">
-            <Label Text="Ciudad"
+            <!-- Selector de película -->
+            <Label Text="Película"
                    FontSize="16"
                    Margin="0,12,0,6"/>
+            <Picker Title="Película"
+                    ItemsSource="{Binding Movies}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedMovie}" />
 
-            <Picker Title="Ciudad"
-                    ItemsSource="{Binding Cities}"
-                    SelectedItem="{Binding SelectedCity}" />
-
+            <!-- Rango de fechas -->
             <Label Text="Rango de fechas"
                    FontSize="16"
                    Margin="0,12,0,6"/>
-
             <HorizontalStackLayout Spacing="10">
                 <VerticalStackLayout>
                     <Label Text="Desde:" FontSize="14"/>
@@ -35,6 +36,17 @@
                 </VerticalStackLayout>
             </HorizontalStackLayout>
 
+            <!-- Opciones -->
+            <Label Text="Opción"
+                   FontSize="16"
+                   Margin="0,12,0,6"/>
+            <HorizontalStackLayout Spacing="16">
+                <RadioButton Content="BO" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=BO}" GroupName="Option"/>
+                <RadioButton Content="Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Adms}" GroupName="Option"/>
+                <RadioButton Content="BO y Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Both}" GroupName="Option"/>
+            </HorizontalStackLayout>
+
+            <!-- Botón consultar -->
             <Button Text="CONSULTAR"
                     Command="{Binding SearchCommand}"
                     BackgroundColor="#3588F4"

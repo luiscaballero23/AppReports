@@ -6,4 +6,5 @@ namespace AppReports.Services;
 public interface IApiService
 {
     Task<User> LoginAsync(string username, string password);
+    Task<List<Movie>> GetMoviesAsync();
 }

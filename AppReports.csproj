@@ -24,7 +24,7 @@
 		<ApplicationTitle>AppReports</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.appreports</ApplicationId>
+		<ApplicationId>co.luiscaballero.appreports</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -62,6 +62,10 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
+	<ItemGroup>
+    <EmbeddedResource Include="Resources\movies.json" />
+</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
