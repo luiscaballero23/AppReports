@@ -22,17 +22,5 @@ public partial class ReportsPage : ContentPage
 	public ReportsPage()
 	{
 		InitializeComponent();
-	}
-
-	protected override void OnAppearing()
-	{
-		base.OnAppearing();
-		// Crea el ViewModel solo cuando los parámetros están listos
-		if (!string.IsNullOrEmpty(ReportName) && !string.IsNullOrEmpty(City) && !string.IsNullOrEmpty(DateFrom) && !string.IsNullOrEmpty(DateTo))
-		{
-			DateTime dateFrom = DateTime.Parse(DateFrom);
-			DateTime dateTo = DateTime.Parse(DateTo);
-			BindingContext = new ReportsViewModel(ReportName, City, dateFrom, dateTo);
-		}
-	}
+	}	
 }

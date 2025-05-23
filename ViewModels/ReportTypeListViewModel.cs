@@ -12,13 +12,13 @@ public class ReportTypeListViewModel
 
     public ReportTypeListViewModel()
     {
-        // Puedes ajustar y traducir los nombres/descripciones según tu negocio
         ReportTypes = new ObservableCollection<ReportType>
-            {
-                new ReportType { Name = "Taquilla", Description = "La taquilla o boletería es el sitio donde se venden las entradas para acceder a un evento público." },
-                new ReportType { Name = "Por Salas", Description = "Reporte de ventas por sala de cine." },
-                new ReportType { Name = "General", Description = "Reporte general de todas las películas." }
-            };
+        {
+            new ReportType { Name = "Competetive Projected", Key = "competitive-projected" },
+            new ReportType { Name = "Exhibitor Market Share", Key = "exhibitor-market-share" },
+            new ReportType { Name = "Film Running", Key = "film-running" },
+            new ReportType { Name = "FRWK/MDWK", Key = "frwk-mdwk" }
+        };
 
         SelectReportTypeCommand = new Command<ReportType>(OnSelectReportType);
     }

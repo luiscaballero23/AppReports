@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppReports.Views.MovieReportDetailPage"
+             Title="Report Detail">    
+    <ScrollView>
+        <VerticalStackLayout Padding="18,14">
+            <Label Text="{Binding MovieName}" FontAttributes="Bold" FontSize="22" />
+            <BoxView HeightRequest="12" />
+
+            <!-- General Data -->
+            <Label Text="General Data" FontAttributes="Bold" FontSize="18"/>
+            <Label Text="{Binding City, StringFormat='City: {0}'}"/>
+            <Label Text="{Binding Room, StringFormat='Room: {0}'}"/>
+            <Label Text="{Binding Date, StringFormat='Date: {0:yyyy-MM-dd}'}"/>
+            <Label Text="{Binding MovieGenre, StringFormat='Genre: {0}'}"/>
+            <Label Text="{Binding Distributor, StringFormat='Distributor: {0}'}"/>
+            <Label Text="{Binding Director, StringFormat='Director: {0}'}"/>
+            <BoxView HeightRequest="8"/>
+
+            <!-- Operation & Projection -->
+            <Label Text="Operation &amp; Projection" FontAttributes="Bold" FontSize="18"/>
+            <Label Text="{Binding Projectionist, StringFormat='Projectionist: {0}'}"/>
+            <Label Text="{Binding StartTime, StringFormat='Start Time: {0}'}"/>
+            <Label Text="{Binding EndTime, StringFormat='End Time: {0}'}"/>
+            <Label Text="{Binding DurationMinutes, StringFormat='Duration: {0} min'}"/>
+            <Label Text="{Binding Language, StringFormat='Language: {0}'}"/>
+            <Label Text="{Binding Subtitled, StringFormat='Subtitled: {0}'}"/>
+            <Label Text="{Binding ScreenType, StringFormat='Screen Type: {0}'}"/>
+            <Label Text="{Binding SoundType, StringFormat='Sound Type: {0}'}"/>
+            <Label Text="{Binding Format, StringFormat='Format: {0}'}"/>
+            <BoxView HeightRequest="8"/>
+
+            <!-- Financials -->
+            <Label Text="Financials" FontAttributes="Bold" FontSize="18"/>
+            <Label Text="{Binding TicketsSold, StringFormat='Tickets Sold: {0}'}"/>
+            <Label Text="{Binding BoxOffice, StringFormat='Box Office: ${0:N0}'}"/>
+            <Label Text="{Binding Tax, StringFormat='Tax: ${0:N0}'}"/>
+            <Label Text="{Binding Discount, StringFormat='Discount: ${0:N0}'}"/>
+            <Label Text="{Binding NetIncome, StringFormat='Net Income: ${0:N0}'}"/>
+            <Label Text="{Binding Occupancy, StringFormat='Occupancy: {0}%'}"/>
+            <Label Text="{Binding PopcornSales, StringFormat='Popcorn Sales: ${0:N0}'}"/>
+            <Label Text="{Binding DrinkSales, StringFormat='Drink Sales: ${0:N0}'}"/>
+            <Label Text="{Binding FoodSales, StringFormat='Food Sales: ${0:N0}'}"/>
+            <BoxView HeightRequest="8"/>
+
+            <!-- Audience & Misc -->
+            <Label Text="Audience &amp; Others" FontAttributes="Bold" FontSize="18"/>
+            <Label Text="{Binding AgeRating, StringFormat='Age Rating: {0}'}"/>
+            <Label Text="{Binding Attendance, StringFormat='Attendance: {0}'}"/>
+            <Label Text="{Binding Comments, StringFormat='Comments: {0}'}"/>
+            <Label Text="{Binding ReportStatus, StringFormat='Status: {0}'}"/>
+            <Label Text="{Binding LastUpdate, StringFormat='Last Update: {0:yyyy-MM-dd HH:mm}'}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
