@@ -6,24 +6,102 @@
              Title="ReportLevel1Page">
 
     <ContentPage.BindingContext>
-        <vm:ReportLevel1ViewModel />
+        <vm:ReportLevel1ViewModel/>
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="16" Spacing="18">
-            <!-- Encabezado general -->
-            <Frame CornerRadius="10" Padding="12" BackgroundColor="#F7F7F7">
-                <VerticalStackLayout Spacing="2">
-                    <Label Text="{Binding Header.OriginalTitle}" FontAttributes="Bold"/>
-                    <Label Text="{Binding Header.LocalTitle}"/>
-                    <Label Text="{Binding Header.ReleaseDate, StringFormat='Release: {0}'}"/>
-                    <Label Text="{Binding Header.Distributor}"/>
-                    <Label Text="{Binding Header.Censorship}"/>
-                </VerticalStackLayout>
+        <VerticalStackLayout Padding="16"
+                             Spacing="18">
+            <Frame CornerRadius="10"
+                   Padding="12"
+                   BackgroundColor="#F7F7F7">
+                <Grid RowSpacing="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Original Title:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Text="{Binding Header.OriginalTitle}"/>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Local Title:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Header.LocalTitle}"/>
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Release date:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Header.ReleaseDate, StringFormat='{0:yyyy-MM-dd}'}"/>
+
+                    <Label Grid.Row="3"
+                           Grid.Column="0"
+                           Text="Nro prints:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="3"
+                           Grid.Column="1"
+                           Text="{Binding Header.NroPrints}"/>
+
+                    <Label Grid.Row="4"
+                           Grid.Column="0"
+                           Text="Distributor:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="4"
+                           Grid.Column="1"
+                           Text="{Binding Header.Distributor}"/>
+
+                    <Label Grid.Row="5"
+                           Grid.Column="0"
+                           Text="Censorship:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="5"
+                           Grid.Column="1"
+                           Text="{Binding Header.Censorship}"/>
+                </Grid>
             </Frame>
 
-            <!-- Lista de detalles (exhibidores) -->
-            
+            <CollectionView ItemsSource="{Binding Details}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}"
+                                    FontAttributes="Bold"/>
+                            <CollectionView ItemsSource="{Binding Columns}"
+                                    HeightRequest="300">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <HorizontalStackLayout>
+                                            <Label Text="{Binding ColumnHeader}"
+                                                    FontAttributes="Bold"
+                                                    WidthRequest="120"/>
+                                            <Label Text="{Binding Value}"/>
+                                        </HorizontalStackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
