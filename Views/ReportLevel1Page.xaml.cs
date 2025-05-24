@@ -1,26 +1,26 @@
-using AppReports.ViewModels;
-
 namespace AppReports.Views;
 
 [QueryProperty(nameof(ReportName), "reportName")]
-[QueryProperty(nameof(City), "city")]
+[QueryProperty(nameof(MovieId), "movie")]
 [QueryProperty(nameof(DateFrom), "from")]
 [QueryProperty(nameof(DateTo), "to")]
-public partial class ReportsPage : ContentPage
+[QueryProperty(nameof(SelectedOption), "option")]
+public partial class ReportLevel1Page : ContentPage
 {
-	string _reportName, _city, _dateFrom, _dateTo;
+	string _reportName, _movieId, _dateFrom, _dateTo, _option;
 
 	public string ReportName
 	{
 		get => _reportName;
 		set { _reportName = value; Title = value; }
 	}
-	public string City { get => _city; set => _city = value; }
+	public string MovieId { get => _movieId; set => _movieId = value; }
 	public string DateFrom { get => _dateFrom; set => _dateFrom = value; }
 	public string DateTo { get => _dateTo; set => _dateTo = value; }
+	public string SelectedOption { get => _option; set => _option = value; }
 
-	public ReportsPage()
+	public ReportLevel1Page()
 	{
 		InitializeComponent();
-	}	
+	}
 }

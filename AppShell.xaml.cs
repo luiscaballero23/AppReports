@@ -8,7 +8,9 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
         Routing.RegisterRoute("ReportFilterPage", typeof(AppReports.Views.ReportFilterPage));
-        Routing.RegisterRoute("ReportsPage", typeof(AppReports.Views.ReportsPage));
+        Routing.RegisterRoute("ReportLevel1Page", typeof(AppReports.Views.ReportLevel1Page));
+
+ 
         Routing.RegisterRoute(nameof(MovieReportDetailPage), typeof(MovieReportDetailPage));
         Routing.RegisterRoute("TestView", typeof(AppReports.Views.TestView));
     }

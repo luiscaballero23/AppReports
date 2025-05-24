@@ -66,7 +66,7 @@ public class ReportFilterViewModel : INotifyPropertyChanged
         if (SelectedMovie == null || string.IsNullOrWhiteSpace(SelectedOption))
             return;
 
-        await Shell.Current.GoToAsync($"ReportsPage?reportName={ReportName}&movie={SelectedMovie.Id}&from={DateFrom:yyyy-MM-dd}&to={DateTo:yyyy-MM-dd}&option={SelectedOption}");
+        await Shell.Current.GoToAsync($"ReportLevel1Page?reportName={ReportName}&movie={SelectedMovie.Id}&from={DateFrom:yyyy-MM-dd}&to={DateTo:yyyy-MM-dd}&option={SelectedOption}");
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

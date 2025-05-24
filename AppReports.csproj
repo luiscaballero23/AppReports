@@ -64,8 +64,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <EmbeddedResource Include="Resources\movies.json" />
-</ItemGroup>
+    	<EmbeddedResource Include="Resources\movies.json" />
+		<EmbeddedResource Include="Resources\report-header.json" />
+		<EmbeddedResource Include="Resources\report-details-exhibitors.json" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
