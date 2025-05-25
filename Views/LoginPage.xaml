@@ -14,7 +14,7 @@
                                    Spacing="20">
 
                      <!-- Banner -->
-                     <Image Source="login_banner.png"
+                     <Image Source="img_login_banner.png"
                             HeightRequest="160"
                             HorizontalOptions="Center"
                             Margin="0,0,0,8"/>
@@ -35,7 +35,7 @@
                                           <HorizontalStackLayout Padding="10"
                                                                  VerticalOptions="Center"
                                                                  HeightRequest="42">
-                                                 <Image Source="user_icon.png"
+                                                 <Image Source="ic_user_icon.png"
                                                         WidthRequest="24"
                                                         HeightRequest="24"
                                                         VerticalOptions="Center"/>
@@ -57,7 +57,7 @@
                                           HeightRequest="50">
                                           <HorizontalStackLayout Padding="10"
                                                                  VerticalOptions="Center">
-                                                 <Image Source="key_icon.png"
+                                                 <Image Source="ic_key_icon.png"
                                                         WidthRequest="24"
                                                         HeightRequest="24"
                                                         VerticalOptions="Center"/>
