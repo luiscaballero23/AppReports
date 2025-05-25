@@ -10,8 +10,10 @@
     </ContentPage.BindingContext>
 
     <ScrollView>
+        
         <VerticalStackLayout Padding="16"
                              Spacing="18">
+                              
             <Frame CornerRadius="10"
                    Padding="12"
                    BackgroundColor="#F7F7F7">
@@ -79,22 +81,61 @@
                 </Grid>
             </Frame>
 
-            <CollectionView ItemsSource="{Binding Details}">
+            <CollectionView ItemsSource="{Binding Details}"
+                            SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}"
-                                    FontAttributes="Bold"/>
+                        <VerticalStackLayout Margin="10,5">
+                            <Grid BackgroundColor="Blue"
+                                  Padding="10,5"
+                                  HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0"
+                                       Text="{Binding Name}"
+                                       Style="{StaticResource DetailsNameLabel}"/>
+
+                                <Label Grid.Column="1"
+                                       Text="- Ver más"
+                                       TextColor="White"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="End"/>
+                            </Grid>
+
+
                             <CollectionView ItemsSource="{Binding Columns}"
-                                    HeightRequest="300">
+                                            BackgroundColor="LightBlue"
+                                            SelectionMode="None"
+                                    HorizontalOptions="FillAndExpand">
+
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Vertical"
+                                            ItemSpacing="1"/>
+                                </CollectionView.ItemsLayout>
+
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <HorizontalStackLayout>
-                                            <Label Text="{Binding ColumnHeader}"
-                                                    FontAttributes="Bold"
-                                                    WidthRequest="120"/>
-                                            <Label Text="{Binding Value}"/>
-                                        </HorizontalStackLayout>
+                                        <Grid BackgroundColor="White"
+                                                Padding="10,5"
+                                                HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <Label Grid.Column="0" 
+                                                Text="{Binding ColumnHeader}" 
+                                                Style="{StaticResource ColumnHeaderLabel}" />
+                                           
+                                            <Label Grid.Column="1"
+                                                    Text="{Binding Value}"
+                                                    HorizontalTextAlignment="End"
+                                                   VerticalOptions="Center"/>
+                                        </Grid>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
                             </CollectionView>

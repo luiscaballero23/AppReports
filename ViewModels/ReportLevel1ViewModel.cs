@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text.Json;
 using AppReports.Models;
+using AppReports.Services;
 
 namespace AppReports.ViewModels;
 
@@ -13,29 +14,22 @@ public class ReportLevel1ViewModel : INotifyPropertyChanged
 
     public event PropertyChangedEventHandler PropertyChanged;
     
+    private readonly IApiService _apiService;
+    
     public ReportLevel1ViewModel()
     {
+        _apiService = new MockApiService();
         LoadDataAsync();
     }
 
     private async void LoadDataAsync()
     {
-        // Cargar encabezado
-        var assembly = typeof(App).Assembly;
-        using var streamHeader = assembly.GetManifestResourceStream("AppReports.Resources.report-header.json");
-        using var readerHeader = new StreamReader(streamHeader);
-        string jsonHeader = readerHeader.ReadToEnd();
-        var header = JsonSerializer.Deserialize<ReportHeader>(jsonHeader);
-        Header = header;
+        Header = await _apiService.GetReportHeaderAsync();
 
         // Notifica el cambio (si lo usas en binding)
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Header)));
 
-        // Cargar detalles
-        using var streamDetails = assembly.GetManifestResourceStream("AppReports.Resources.report-details-exhibitors.json");
-        using var readerDetails = new StreamReader(streamDetails);
-        string jsonDetails = readerDetails.ReadToEnd();
-        var rootDetails = JsonSerializer.Deserialize<ReportDetailsRoot>(jsonDetails);
+        var rootDetails = await _apiService.GetReportDetailsRootAsync();
 
         Details.Clear();
         foreach (var detail in rootDetails.ReportDetails)
