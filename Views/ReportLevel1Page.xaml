@@ -14,7 +14,7 @@
     <Grid>
         <ScrollView>
             <VerticalStackLayout Padding="16"
-                                 Spacing="18">
+                                 Spacing="12">
                 <Frame CornerRadius="10"
                        Padding="12"
                        BackgroundColor="#F7F7F7">
@@ -87,9 +87,9 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <VerticalStackLayout Margin="10,5">
-                                <Grid BackgroundColor="Blue"
+                                <Grid BackgroundColor="#1E4E79"
                                       Padding="10,5"
-                                      HorizontalOptions="FillAndExpand">
+                                      HeightRequest="35">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
@@ -97,18 +97,25 @@
 
                                     <Label Grid.Column="0"
                                            Text="{Binding Name}"
-                                           Style="{StaticResource DetailsNameLabel}"/>
+                                           Style="{StaticResource DetailsNameLabel}"
+                                           VerticalOptions="Center"/>
 
-                                    <ImageButton Source="ic_chevron_right.png"
+                                    <ImageButton Grid.Column="1"
+                                                 Source="ic_chevron_right.png"
                                                  Command="{Binding BindingContext.GoToLevel2Command, Source={x:Reference Name=ReportLevel1PageRoot}}"
                                                  CommandParameter="{Binding .}"
+                                                 BackgroundColor="Transparent"
+                                                 WidthRequest="26"
+                                                 HeightRequest="26"
+                                                 Padding="0"
+                                                 Margin="10,0,0,0"
+                                                 VerticalOptions="Center"
                                                  HorizontalOptions="End"/>
                                 </Grid>
 
                                 <CollectionView ItemsSource="{Binding Columns}"
                                                 BackgroundColor="LightBlue"
-                                                SelectionMode="None"
-                                                HorizontalOptions="FillAndExpand">
+                                                SelectionMode="None">
 
                                     <CollectionView.ItemsLayout>
                                         <LinearItemsLayout Orientation="Vertical"
@@ -118,8 +125,7 @@
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <Grid BackgroundColor="White"
-                                                  Padding="10,5"
-                                                  HorizontalOptions="FillAndExpand">
+                                                  Padding="10,5">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="Auto"/>

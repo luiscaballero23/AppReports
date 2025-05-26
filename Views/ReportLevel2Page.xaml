@@ -3,49 +3,150 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:AppReports.ViewModels"
              x:Class="AppReports.Views.ReportLevel2Page"
-             Title="ReportLevel2Page">
-    
+             Title="ReportLevel2Page"
+             x:Name="ReportLevel2PageRoot">
+
     <ScrollView>
-        <VerticalStackLayout Padding="16" Spacing="12">
-            <!-- Encabezado del Exhibidor -->
-            <Grid BackgroundColor="#1E4E79" Padding="10">
+        <VerticalStackLayout Padding="16"
+                             Spacing="12">
+            <Frame CornerRadius="10"
+                   Padding="12"
+                   BackgroundColor="#F7F7F7">
+                <Grid RowSpacing="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Original Title:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Text="{Binding Header.OriginalTitle}"/>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Local Title:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Header.LocalTitle}"/>
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Release date:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Header.ReleaseDate, StringFormat='{0:yyyy-MM-dd}'}"/>
+
+                    <Label Grid.Row="3"
+                           Grid.Column="0"
+                           Text="Nro prints:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="3"
+                           Grid.Column="1"
+                           Text="{Binding Header.NroPrints}"/>
+
+                    <Label Grid.Row="4"
+                           Grid.Column="0"
+                           Text="Distributor:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="4"
+                           Grid.Column="1"
+                           Text="{Binding Header.Distributor}"/>
+
+                    <Label Grid.Row="5"
+                           Grid.Column="0"
+                           Text="Censorship:"
+                           FontAttributes="Bold"/>
+                    <Label Grid.Row="5"
+                           Grid.Column="1"
+                           Text="{Binding Header.Censorship}"/>
+                </Grid>
+            </Frame>
+
+            <Grid BackgroundColor="#1E4E79"
+                  Padding="10,5"
+                  HeightRequest="35">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="{Binding ExhibitorName}" FontAttributes="Bold" FontSize="18" TextColor="White" />
-                <Label Grid.Column="1" Text="- Volver" FontAttributes="Bold" TextColor="White" />
+
+                <Label Grid.Column="0"
+                       Text="{Binding ExhibitorName}"
+                       Style="{StaticResource DetailsNameLabel}"
+                       VerticalOptions="Center"/>
             </Grid>
 
             <!-- Secciones de Multiplex -->
-            <CollectionView ItemsSource="{Binding Multiplexes}" SelectionMode="None">
+            <CollectionView ItemsSource="{Binding Multiplexes}"
+                            SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <VerticalStackLayout>
-                            <!-- Encabezado Multiplex -->
-                            <Grid BackgroundColor="#EF6C00" Padding="10">
+                            <Grid BackgroundColor="#EF6C00"
+                                  Padding="10,5"
+                                  HeightRequest="35">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16" TextColor="White" />
-                                <Label Grid.Column="1" Text="- Ver más" FontAttributes="Bold" TextColor="White" />
+
+                                <Label Grid.Column="0"
+                                       Text="{Binding Name}"
+                                       Style="{StaticResource DetailsNameLabel}"
+                                       VerticalOptions="Center"/>
+
+                                <ImageButton Grid.Column="1"
+                                             Source="ic_chevron_right.png"
+                                             Command="{Binding BindingContext.GoToLevel2Command, Source={x:Reference Name=ReportLevel2PageRoot}}"
+                                             CommandParameter="{Binding .}"
+                                             BackgroundColor="Transparent"
+                                             WidthRequest="26"
+                                             HeightRequest="26"
+                                             Padding="0"
+                                             Margin="10,0,0,0"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="End"/>
                             </Grid>
 
-                            <!-- Detalle -->
-                            <CollectionView ItemsSource="{Binding Columns}" SelectionMode="None">
+                            <CollectionView ItemsSource="{Binding Columns}"
+                                            BackgroundColor="Orange"
+                                            SelectionMode="None">
+
                                 <CollectionView.ItemsLayout>
-                                    <LinearItemsLayout Orientation="Vertical" />
+                                    <LinearItemsLayout Orientation="Vertical"
+                                                       ItemSpacing="1"/>
                                 </CollectionView.ItemsLayout>
+
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid Padding="8" BackgroundColor="White">
+                                        <Grid BackgroundColor="White"
+                                              Padding="10,5">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <Label Text="{Binding ColumnHeader}" FontAttributes="Bold" Grid.Column="0" />
-                                            <Label Text="{Binding Value}" Grid.Column="1" HorizontalOptions="End" />
+
+                                            <Label Grid.Column="0"
+                                                   Text="{Binding ColumnHeader}"
+                                                   Style="{StaticResource ColumnHeaderLabel}"/>
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding Value}"
+                                                   HorizontalTextAlignment="End"
+                                                   VerticalOptions="Center"/>
                                         </Grid>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
@@ -57,19 +158,39 @@
 
             <!-- Totales -->
             <VerticalStackLayout>
-                <Grid BackgroundColor="#EF6C00" Padding="10">
-                    <Label Text="TOTAL" FontAttributes="Bold" FontSize="16" TextColor="White" />
+                <Grid BackgroundColor="#EF6C00"
+                      Padding="10,7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="TOTAL"
+                           Style="{StaticResource DetailsNameLabel}"/>
                 </Grid>
-                <CollectionView ItemsSource="{Binding Totals}" SelectionMode="None">
+
+                <CollectionView ItemsSource="{Binding Totals}"
+                                BackgroundColor="Orange"
+                                SelectionMode="None">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                           ItemSpacing="1"/>
+                    </CollectionView.ItemsLayout>
+
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="8" BackgroundColor="White">
+                            <Grid Padding="8"
+                                  BackgroundColor="White">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{Binding ColumnHeader}" FontAttributes="Bold" Grid.Column="0" />
-                                <Label Text="{Binding Value}" Grid.Column="1" HorizontalOptions="End" FontAttributes="Bold" />
+                                <Label Grid.Column="0"
+                                       Text="{Binding ColumnHeader}"
+                                       Style="{StaticResource ColumnHeaderLabel}"/>
+                                <Label Grid.Column="1"
+                                       Text="{Binding Value}"
+                                       Style="{StaticResource ColumnHeaderLabel}"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

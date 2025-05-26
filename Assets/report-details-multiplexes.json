@@ -3,23 +3,56 @@
     {
       "name": "MPX CENTRO MAYOR",
       "columns": [
-        { "columnHeader": "Screen Index (SI)", "value": "25.000" },
-        { "columnHeader": "Sat - 2025-02-22", "value": "100,000,000" },
-        { "columnHeader": "Market Share Wk", "value": "12.31%" }
+        { "columnHeader": "Screen Index (SI)", "value": "135.429" },
+        { "columnHeader": "Sat - 2025-02-22", "value": "507,876,000" },
+        { "columnHeader": "Sun - 2025-02-23", "value": "441,342,200" },
+        { "columnHeader": "Mon - 2025-02-24", "value": "66,675,900" },
+        { "columnHeader": "Tue - 2025-02-25", "value": "87,172,300" },
+        { "columnHeader": "Wed - 2025-02-26", "value": "131,249,000" },
+        { "columnHeader": "Thu - 2025-02-27", "value": "70,394,300" },
+        { "columnHeader": "Fri - 2025-02-28", "value": "142,624,100" },
+        { "columnHeader": "Wknd", "value": "1,103,086,400" },
+        { "columnHeader": "Wk GBO", "value": "1,447,333,800" },
+        { "columnHeader": "Wk GBO/SI", "value": "10,687,030" },
+        { "columnHeader": "Market Share Wk", "value": "42.51%" },
+        { "columnHeader": "Cumulative", "value": "4,750,093,800" },
+        { "columnHeader": "Market Share Cumulative", "value": "42.64%" }
       ]
     },
     {
       "name": "MPX CACIQUE",
       "columns": [
-        { "columnHeader": "Screen Index (SI)", "value": "12.000" },
-        { "columnHeader": "Sat - 2025-02-22", "value": "42,876,000" },
-        { "columnHeader": "Market Share Wk", "value": "5.11%" }
+        { "columnHeader": "Screen Index (SI)", "value": "135.429" },
+        { "columnHeader": "Sat - 2025-02-22", "value": "507,876,000" },
+        { "columnHeader": "Sun - 2025-02-23", "value": "441,342,200" },
+        { "columnHeader": "Mon - 2025-02-24", "value": "66,675,900" },
+        { "columnHeader": "Tue - 2025-02-25", "value": "87,172,300" },
+        { "columnHeader": "Wed - 2025-02-26", "value": "131,249,000" },
+        { "columnHeader": "Thu - 2025-02-27", "value": "70,394,300" },
+        { "columnHeader": "Fri - 2025-02-28", "value": "142,624,100" },
+        { "columnHeader": "Wknd", "value": "1,103,086,400" },
+        { "columnHeader": "Wk GBO", "value": "1,447,333,800" },
+        { "columnHeader": "Wk GBO/SI", "value": "10,687,030" },
+        { "columnHeader": "Market Share Wk", "value": "42.51%" },
+        { "columnHeader": "Cumulative", "value": "4,750,093,800" },
+        { "columnHeader": "Market Share Cumulative", "value": "42.64%" }
       ]
     }
   ],
   "totals": [
-    { "columnHeader": "Screen Index (SI)", "value": "37.000" },
-    { "columnHeader": "Sat - 2025-02-22", "value": "142,876,000" },
-    { "columnHeader": "Market Share Wk", "value": "17.42%" }
+    { "columnHeader": "Screen Index (SI)", "value": "135.429" },
+    { "columnHeader": "Sat - 2025-02-22", "value": "507,876,000" },
+    { "columnHeader": "Sun - 2025-02-23", "value": "441,342,200" },
+    { "columnHeader": "Mon - 2025-02-24", "value": "66,675,900" },
+    { "columnHeader": "Tue - 2025-02-25", "value": "87,172,300" },
+    { "columnHeader": "Wed - 2025-02-26", "value": "131,249,000" },
+    { "columnHeader": "Thu - 2025-02-27", "value": "70,394,300" },
+    { "columnHeader": "Fri - 2025-02-28", "value": "142,624,100" },
+    { "columnHeader": "Wknd", "value": "1,103,086,400" },
+    { "columnHeader": "Wk GBO", "value": "1,447,333,800" },
+    { "columnHeader": "Wk GBO/SI", "value": "10,687,030" },
+    { "columnHeader": "Market Share Wk", "value": "42.51%" },
+    { "columnHeader": "Cumulative", "value": "4,750,093,800" },
+    { "columnHeader": "Market Share Cumulative", "value": "42.64%" }
   ]
 }

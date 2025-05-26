@@ -2,14 +2,23 @@ using AppReports.ViewModels;
 
 namespace AppReports.Views;
 
+[QueryProperty(nameof(ReportName), "reportName")]
 public partial class ReportLevel2Page : ContentPage, IQueryAttributable
 {
-	public ReportLevel2Page()
+    string _reportName;
+
+	public string ReportName
 	{
-		InitializeComponent();
+		get => _reportName;
+		set { _reportName = value; Title = value; }
 	}
 
-	public void ApplyQueryAttributes(IDictionary<string, object> query)
+    public ReportLevel2Page()
+    {
+        InitializeComponent();
+    }
+
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         if (query.ContainsKey("exhibitorName"))
         {
