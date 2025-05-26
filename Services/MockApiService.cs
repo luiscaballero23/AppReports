@@ -59,4 +59,17 @@ public class MockApiService : IApiService
         string jsonDetails = readerDetails.ReadToEnd();
         return JsonSerializer.Deserialize<ReportDetailsRoot>(jsonDetails);
     }
+
+    public async Task<ReportLevel2Root> GetReportLevel2RootAsync(string exhibitorName)
+    {
+        await Task.Delay(300); // Simula la latencia de red
+
+        var assembly = typeof(App).Assembly;
+        // Puedes ajustar el nombre del archivo según el exhibidor si quieres diferenciar por exhibidor
+        using var stream = assembly.GetManifestResourceStream("AppReports.Assets.report-details-multiplexes.json");
+        using var reader = new StreamReader(stream);
+        string json = reader.ReadToEnd();
+        return JsonSerializer.Deserialize<ReportLevel2Root>(json);
+    }
+
 }

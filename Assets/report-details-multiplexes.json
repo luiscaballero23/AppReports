@@ -1,0 +1,25 @@
+{
+  "multiplexes": [
+    {
+      "name": "MPX CENTRO MAYOR",
+      "columns": [
+        { "columnHeader": "Screen Index (SI)", "value": "25.000" },
+        { "columnHeader": "Sat - 2025-02-22", "value": "100,000,000" },
+        { "columnHeader": "Market Share Wk", "value": "12.31%" }
+      ]
+    },
+    {
+      "name": "MPX CACIQUE",
+      "columns": [
+        { "columnHeader": "Screen Index (SI)", "value": "12.000" },
+        { "columnHeader": "Sat - 2025-02-22", "value": "42,876,000" },
+        { "columnHeader": "Market Share Wk", "value": "5.11%" }
+      ]
+    }
+  ],
+  "totals": [
+    { "columnHeader": "Screen Index (SI)", "value": "37.000" },
+    { "columnHeader": "Sat - 2025-02-22", "value": "142,876,000" },
+    { "columnHeader": "Market Share Wk", "value": "17.42%" }
+  ]
+}

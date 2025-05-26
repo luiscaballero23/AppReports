@@ -47,3 +47,12 @@ public class ReportDetailsRoot
     [JsonPropertyName("reportDetails")]
     public List<ReportDetail> ReportDetails { get; set; }
 }
+
+public class ReportLevel2Root
+{
+    [JsonPropertyName("multiplexes")]
+    public List<ReportDetail> Multiplexes { get; set; }
+
+    [JsonPropertyName("totals")]
+    public List<ColumnValue> Totals { get; set; }
+}

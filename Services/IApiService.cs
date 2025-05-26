@@ -9,4 +9,5 @@ public interface IApiService
     Task<List<Movie>> GetMoviesAsync();
     Task<ReportHeader> GetReportHeaderAsync();
     Task<ReportDetailsRoot> GetReportDetailsRootAsync();
+    Task<ReportLevel2Root> GetReportLevel2RootAsync(string exhibitorName);
 }
