@@ -9,11 +9,11 @@ using AppReports.Services;
 namespace AppReports.ViewModels;
 
 public class ReportFilterViewModel : INotifyPropertyChanged
-{   
+{
     private readonly IApiService _apiService;
     private readonly IFilterService _filterService;
     public ObservableCollection<Movie> Movies { get; set; } = new();
-public string ReportName
+    public string ReportName
     {
         get => _filterService.Filters.ReportName;
         set { _filterService.Filters.ReportName = value; OnPropertyChanged(); }
@@ -52,7 +52,7 @@ public string ReportName
     public ICommand SearchCommand { get; }
 
     public ReportFilterViewModel(IFilterService filterService)
-    {        
+    {
         _apiService = new MockApiService();
         _filterService = filterService;
         LoadMoviesAsync();
@@ -66,8 +66,8 @@ public string ReportName
         Movies.Clear();
         foreach (var movie in list)
             Movies.Add(movie);
-            
-         if (_filterService.Filters.MovieId.HasValue)
+
+        if (_filterService.Filters.MovieId.HasValue)
             OnPropertyChanged(nameof(SelectedMovie));
     }
 

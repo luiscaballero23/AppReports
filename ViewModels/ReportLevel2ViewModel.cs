@@ -83,6 +83,8 @@ public class ReportLevel2ViewModel : INotifyPropertyChanged, IQueryAttributable
     private async void OnGoToLevel3(ReportDetail exhibitor)
     {
         if (exhibitor == null) return;
+
+        await Shell.Current.GoToAsync($"ReportLevel3Page");
     }
 
     protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

@@ -113,7 +113,7 @@
 
                                     <ImageButton Grid.Column="1"
                                                  Source="ic_chevron_right.png"
-                                                 Command="{Binding BindingContext.GoToLevel2Command, Source={x:Reference Name=ReportLevel2PageRoot}}"
+                                                 Command="{Binding BindingContext.GoToLevel3Command, Source={x:Reference Name=ReportLevel2PageRoot}}"
                                                  CommandParameter="{Binding .}"
                                                  BackgroundColor="Transparent"
                                                  WidthRequest="26"
