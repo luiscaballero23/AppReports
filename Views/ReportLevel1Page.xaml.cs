@@ -1,3 +1,4 @@
+using AppReports.Services;
 using AppReports.ViewModels;
 
 namespace AppReports.Views;
@@ -29,8 +30,10 @@ public partial class ReportLevel1Page : ContentPage
 	public string DateTo { get => _dateTo; set => _dateTo = value; }
 	public string SelectedOption { get => _option; set => _option = value; }
 
-	public ReportLevel1Page()
-	{
-		InitializeComponent();
+    public ReportLevel1Page()
+    {
+        InitializeComponent();
+        var filterService = MauiProgram.Services.GetService<IFilterService>();
+        BindingContext = new ReportLevel1ViewModel(filterService);
 	}
 }

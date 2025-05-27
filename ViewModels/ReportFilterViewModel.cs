@@ -10,60 +10,70 @@ namespace AppReports.ViewModels;
 
 public class ReportFilterViewModel : INotifyPropertyChanged
 {   
-    public string ReportName { get; set; }
+    private readonly IApiService _apiService;
+    private readonly IFilterService _filterService;
     public ObservableCollection<Movie> Movies { get; set; } = new();
+public string ReportName
+    {
+        get => _filterService.Filters.ReportName;
+        set { _filterService.Filters.ReportName = value; OnPropertyChanged(); }
+    }
 
-    private Movie _selectedMovie;
     public Movie SelectedMovie
     {
-        get => _selectedMovie;
-        set { _selectedMovie = value; OnPropertyChanged(); }
+        get => Movies.FirstOrDefault(m => m.Id == _filterService.Filters.MovieId);
+        set
+        {
+            if (value != null)
+            {
+                _filterService.Filters.MovieId = value.Id;
+                OnPropertyChanged();
+            }
+        }
     }
-
-    private DateTime _dateFrom = DateTime.Parse("2025-05-01");
     public DateTime DateFrom
     {
-        get => _dateFrom;
-        set { _dateFrom = value; OnPropertyChanged(); }
+        get => _filterService.Filters.DateFrom ?? DateTime.Today.AddDays(-7);
+        set { _filterService.Filters.DateFrom = value; OnPropertyChanged(); }
     }
 
-    private DateTime _dateTo = DateTime.Today;
     public DateTime DateTo
     {
-        get => _dateTo;
-        set { _dateTo = value; OnPropertyChanged(); }
+        get => _filterService.Filters.DateTo ?? DateTime.Today;
+        set { _filterService.Filters.DateTo = value; OnPropertyChanged(); }
     }
 
-    private string _selectedOption;
     public string SelectedOption
     {
-        get => _selectedOption;
-        set { _selectedOption = value; OnPropertyChanged(); }
+        get => _filterService.Filters.SelectedOption;
+        set { _filterService.Filters.SelectedOption = value; OnPropertyChanged(); }
     }
 
     public ICommand SearchCommand { get; }
 
-    private readonly IApiService _apiService;
-
-    public ReportFilterViewModel()
+    public ReportFilterViewModel(IFilterService filterService)
     {        
         _apiService = new MockApiService();
+        _filterService = filterService;
         LoadMoviesAsync();
 
         SearchCommand = new Command(OnSearch);
     }
-    
+
     private async void LoadMoviesAsync()
     {
         var list = await _apiService.GetMoviesAsync();
         Movies.Clear();
         foreach (var movie in list)
             Movies.Add(movie);
+            
+         if (_filterService.Filters.MovieId.HasValue)
+            OnPropertyChanged(nameof(SelectedMovie));
     }
 
     private async void OnSearch()
     {
-        if (SelectedMovie == null || string.IsNullOrWhiteSpace(SelectedOption))
+        if (!_filterService.Filters.MovieId.HasValue || string.IsNullOrWhiteSpace(SelectedOption))
             return;
 
         await Shell.Current.GoToAsync($"ReportLevel1Page?reportName={ReportName}&movie={SelectedMovie.Id}&from={DateFrom:yyyy-MM-dd}&to={DateTo:yyyy-MM-dd}&option={SelectedOption}");

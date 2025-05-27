@@ -1,10 +1,13 @@
-﻿using CommunityToolkit.Maui;
+﻿using AppReports.Services;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace AppReports;
 
 public static class MauiProgram
 {
+	public static MauiApp App { get; private set; }
+	public static IServiceProvider Services => App.Services;
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
@@ -17,10 +20,13 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		builder.Services.AddSingleton<IFilterService, FilterService>();
+
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+		App = builder.Build();
+        return App;
 	}
 }

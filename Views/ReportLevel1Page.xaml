@@ -7,10 +7,6 @@
              Title="ReportLevel1Page"
              x:Name="ReportLevel1PageRoot">
 
-    <ContentPage.BindingContext>
-        <vm:ReportLevel1ViewModel/>
-    </ContentPage.BindingContext>
-
     <Grid>
         <ScrollView>
             <VerticalStackLayout Padding="16"

@@ -6,10 +6,6 @@
              Title="Filtrar Reportes"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <ContentPage.BindingContext>
-        <vm:ReportFilterViewModel />
-    </ContentPage.BindingContext>
-
     <ScrollView>
         <VerticalStackLayout Padding="32,48,32,0" Spacing="22">
             <!-- Selector de película -->
