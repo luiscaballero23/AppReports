@@ -50,9 +50,9 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
     
     public ReportLevel3ViewModel(IFilterService filterService)
     {
+        _apiService = new MockApiService();
         _filterService = filterService;
-         _apiService = new MockApiService();
-
+         
         ReportName = _filterService.Filters.ReportName;
         ExhibitorName = _filterService.Filters.ExhibitorName;
         MultiplexesName = _filterService.Filters.MultiplexesName;

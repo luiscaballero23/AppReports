@@ -59,7 +59,11 @@ public class ReportLevel1ViewModel : INotifyPropertyChanged
     private async void OnGoToLevel2(ReportDetail exhibitor)
     {
         if (exhibitor == null) return;
-        await Shell.Current.GoToAsync($"ReportLevel2Page?exhibitorId={exhibitor.Id}&exhibitorName={exhibitor.Name}");
+        var filterService = MauiProgram.Services.GetService<IFilterService>();
+        filterService.Filters.ExhibitorId = exhibitor.Id;
+        filterService.Filters.ExhibitorName = exhibitor.Name;
+
+        await Shell.Current.GoToAsync($"ReportLevel2Page");
     }
 
     protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

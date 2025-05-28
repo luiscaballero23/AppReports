@@ -10,11 +10,15 @@ namespace AppReports.ViewModels;
 
 public class ReportLevel2ViewModel : INotifyPropertyChanged
 {
-    private readonly IFilterService _filterService;
-    public ReportFilterParams Filters => _filterService.Filters;
     private readonly IApiService _apiService;
+    private readonly IFilterService _filterService;
 
-    public string ReportName { get; set; }
+    private string _reportName;
+    public string ReportName
+    {
+        get => _reportName;
+        set { _reportName = value; OnPropertyChanged(); }
+    }
 
     private ReportHeader _header;
     public ReportHeader Header
@@ -54,6 +58,8 @@ public class ReportLevel2ViewModel : INotifyPropertyChanged
     {
         _apiService = new MockApiService();
         _filterService = filterService;
+        
+        ReportName = _filterService.Filters.ReportName;
         ExhibitorId = _filterService.Filters.ExhibitorId;
         ExhibitorName = _filterService.Filters.ExhibitorName;
         GoToLevel3Command = new Command<ReportDetail>(OnGoToLevel3);
