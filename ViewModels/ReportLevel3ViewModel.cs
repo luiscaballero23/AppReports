@@ -32,6 +32,13 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
         set { _exhibitorName = value; OnPropertyChanged(); }
     }
 
+    private string _multiplexesName;
+    public string MultiplexesName
+    {
+        get => _multiplexesName;
+        set { _multiplexesName = value; OnPropertyChanged(); }
+    }
+
     private bool _isBusy;
     public bool IsBusy
     {
@@ -48,6 +55,7 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
 
         ReportName = _filterService.Filters.ReportName;
         ExhibitorName = _filterService.Filters.ExhibitorName;
+        MultiplexesName = _filterService.Filters.MultiplexesName;
         LoadDataAsync();
     }
 

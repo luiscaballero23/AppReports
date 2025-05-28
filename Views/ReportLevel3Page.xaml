@@ -98,7 +98,7 @@
                                    </Grid.ColumnDefinitions>
 
                                    <Label Grid.Column="0"
-                                          Text="{Binding ExhibitorName}"
+                                          Text="{Binding MultiplexesName}"
                                           Style="{StaticResource DetailsNameLabel}"
                                           VerticalOptions="Center"/>
                             </Grid>
