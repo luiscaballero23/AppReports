@@ -59,8 +59,7 @@ public class ReportLevel1ViewModel : INotifyPropertyChanged
     private async void OnGoToLevel2(ReportDetail exhibitor)
     {
         if (exhibitor == null) return;
-
-        await Shell.Current.GoToAsync($"ReportLevel2Page?reportName={ReportName}&exhibitorName={Uri.EscapeDataString(exhibitor.Name)}");
+        await Shell.Current.GoToAsync($"ReportLevel2Page?exhibitorId={exhibitor.Id}&exhibitorName={exhibitor.Name}");
     }
 
     protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

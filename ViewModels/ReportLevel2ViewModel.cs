@@ -8,8 +8,10 @@ using AppReports.Services;
 
 namespace AppReports.ViewModels;
 
-public class ReportLevel2ViewModel : INotifyPropertyChanged, IQueryAttributable
+public class ReportLevel2ViewModel : INotifyPropertyChanged
 {
+    private readonly IFilterService _filterService;
+    public ReportFilterParams Filters => _filterService.Filters;
     private readonly IApiService _apiService;
 
     public string ReportName { get; set; }
@@ -19,6 +21,13 @@ public class ReportLevel2ViewModel : INotifyPropertyChanged, IQueryAttributable
     {
         get => _header;
         set { _header = value; OnPropertyChanged(); }
+    }
+
+    private string _exhibitorId;
+    public string ExhibitorId
+    {
+        get => _exhibitorId;
+        set { _exhibitorId = value; OnPropertyChanged(); }
     }
 
     private string _exhibitorName;
@@ -41,33 +50,21 @@ public class ReportLevel2ViewModel : INotifyPropertyChanged, IQueryAttributable
     public event PropertyChangedEventHandler PropertyChanged;
     public ICommand GoToLevel3Command { get; }
 
-    public ReportLevel2ViewModel(string exhibitorName = null)
+    public ReportLevel2ViewModel(IFilterService filterService)
     {
         _apiService = new MockApiService();
-        ExhibitorName = exhibitorName ?? "CINE COLOMBIA"; // Por defecto
+        _filterService = filterService;
+        ExhibitorId = _filterService.Filters.ExhibitorId;
+        ExhibitorName = _filterService.Filters.ExhibitorName;
         GoToLevel3Command = new Command<ReportDetail>(OnGoToLevel3);
         LoadDataAsync();
-    }
-
-    public ReportLevel2ViewModel()
-    {
-
-    }
-
-    public void ApplyQueryAttributes(IDictionary<string, object> query)
-    {
-        if (query.ContainsKey("exhibitorName"))
-        {
-            ExhibitorName = query["exhibitorName"]?.ToString();
-            LoadDataAsync(); // Vuelve a cargar con el nuevo valor recibido
-        }
     }
 
     private async void LoadDataAsync()
     {
         IsBusy = true;
         Header = await _apiService.GetReportHeaderAsync();
-        var root = await _apiService.GetReportLevel2RootAsync(ExhibitorName);
+        var root = await _apiService.GetReportLevel2RootAsync(ExhibitorId);
 
         Multiplexes.Clear();
         foreach (var multiplex in root.Multiplexes)
@@ -80,9 +77,9 @@ public class ReportLevel2ViewModel : INotifyPropertyChanged, IQueryAttributable
         IsBusy = false;
     }
 
-    private async void OnGoToLevel3(ReportDetail exhibitor)
+    private async void OnGoToLevel3(ReportDetail multiplexes)
     {
-        if (exhibitor == null) return;
+        if (multiplexes == null) return;
 
         await Shell.Current.GoToAsync($"ReportLevel3Page");
     }

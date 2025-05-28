@@ -74,6 +74,34 @@
                                                  Text="{Binding Header.Censorship}"/>
                                    </Grid>
                             </Frame>
+
+                            <Grid BackgroundColor="#1E4E79"
+                                  Padding="10,5"
+                                  HeightRequest="35">
+                                   <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="*"/>
+                                          <ColumnDefinition Width="Auto"/>
+                                   </Grid.ColumnDefinitions>
+
+                                   <Label Grid.Column="0"
+                                          Text="{Binding ExhibitorName}"
+                                          Style="{StaticResource DetailsNameLabel}"
+                                          VerticalOptions="Center"/>
+                            </Grid>
+
+                            <Grid BackgroundColor="#EF6C00"
+                                  Padding="10,5"
+                                  HeightRequest="35">
+                                   <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="*"/>
+                                          <ColumnDefinition Width="Auto"/>
+                                   </Grid.ColumnDefinitions>
+
+                                   <Label Grid.Column="0"
+                                          Text="{Binding ExhibitorName}"
+                                          Style="{StaticResource DetailsNameLabel}"
+                                          VerticalOptions="Center"/>
+                            </Grid>
                      </VerticalStackLayout>
               </ScrollView>
 

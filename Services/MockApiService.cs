@@ -60,7 +60,7 @@ public class MockApiService : IApiService
         return JsonSerializer.Deserialize<ReportDetailsRoot>(jsonDetails);
     }
 
-    public async Task<ReportLevel2Root> GetReportLevel2RootAsync(string exhibitorName)
+    public async Task<ReportLevel2Root> GetReportLevel2RootAsync(string exhibitorId)
     {
         await Task.Delay(300); // Simula la latencia de red
 

@@ -1,6 +1,7 @@
 {
   "reportDetails": [
     {
+      "id": "1",
       "name": "CINE COLOMBIA",
       "columns": [
         { "columnHeader": "Screen Index (SI)", "value": "135.429" },
@@ -20,6 +21,7 @@
       ]
     },
     {
+      "id": "2",
       "name": "CINEMARK",
       "columns": [
         { "columnHeader": "Screen Index (SI)", "value": "101.144" },

@@ -25,6 +25,13 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
         set { _header = value; OnPropertyChanged(); }
     }
 
+    private string _exhibitorName;
+    public string ExhibitorName
+    {
+        get => _exhibitorName;
+        set { _exhibitorName = value; OnPropertyChanged(); }
+    }
+
     private bool _isBusy;
     public bool IsBusy
     {
@@ -40,6 +47,7 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
          _apiService = new MockApiService();
 
         ReportName = _filterService.Filters.ReportName;
+        ExhibitorName = _filterService.Filters.ExhibitorName;
         LoadDataAsync();
     }
 

@@ -1,6 +1,7 @@
 {
   "multiplexes": [
     {
+      "id": "10",
       "name": "MPX CENTRO MAYOR",
       "columns": [
         { "columnHeader": "Screen Index (SI)", "value": "135.429" },
@@ -20,6 +21,7 @@
       ]
     },
     {
+      "id": "20",
       "name": "MPX CACIQUE",
       "columns": [
         { "columnHeader": "Screen Index (SI)", "value": "135.429" },

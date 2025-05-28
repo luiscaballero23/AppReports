@@ -13,7 +13,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("ReportLevel3Page", typeof(ReportLevel3Page));
 
  
-        Routing.RegisterRoute(nameof(MovieReportDetailPage), typeof(MovieReportDetailPage));
         Routing.RegisterRoute("TestView", typeof(AppReports.Views.TestView));
     }
 }
