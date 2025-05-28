@@ -10,4 +10,5 @@ public interface IApiService
     Task<ReportHeader> GetReportHeaderAsync();
     Task<ReportDetailsRoot> GetReportDetailsRootAsync();
     Task<ReportLevel2Root> GetReportLevel2RootAsync(string exhibitorId);
+    Task<ReportLevel3Root> GetReportLevel3RootAsync(string multiplexId);
 }

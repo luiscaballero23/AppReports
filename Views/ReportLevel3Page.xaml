@@ -102,6 +102,100 @@
                                           Style="{StaticResource DetailsNameLabel}"
                                           VerticalOptions="Center"/>
                             </Grid>
+
+                            <CollectionView ItemsSource="{Binding Rooms}"
+                                            SelectionMode="None">
+                                   <CollectionView.ItemTemplate>
+                                          <DataTemplate>
+                                                 <VerticalStackLayout>
+                                                        <Grid BackgroundColor="#23B15B"
+                                                              Padding="10,5"
+                                                              HeightRequest="35">
+                                                               <Grid.ColumnDefinitions>
+                                                                      <ColumnDefinition Width="*"/>
+                                                                      <ColumnDefinition Width="Auto"/>
+                                                               </Grid.ColumnDefinitions>
+
+                                                               <Label Grid.Column="0"
+                                                                      Text="{Binding Name}"
+                                                                      Style="{StaticResource DetailsNameLabel}"
+                                                                      VerticalOptions="Center"/>
+                                                        </Grid>
+
+                                                        <CollectionView ItemsSource="{Binding Columns}"
+                                                                        BackgroundColor="#43D97D"
+                                                                        SelectionMode="None">
+
+                                                               <CollectionView.ItemsLayout>
+                                                                      <LinearItemsLayout Orientation="Vertical"
+                                                                                         ItemSpacing="1"/>
+                                                               </CollectionView.ItemsLayout>
+
+                                                               <CollectionView.ItemTemplate>
+                                                                      <DataTemplate>
+                                                                             <Grid BackgroundColor="White"
+                                                                                   Padding="10,5">
+                                                                                    <Grid.ColumnDefinitions>
+                                                                                           <ColumnDefinition Width="*"/>
+                                                                                           <ColumnDefinition Width="Auto"/>
+                                                                                    </Grid.ColumnDefinitions>
+
+                                                                                    <Label Grid.Column="0"
+                                                                                           Text="{Binding ColumnHeader}"
+                                                                                           Style="{StaticResource ColumnHeaderLabel}"/>
+                                                                                    <Label Grid.Column="1"
+                                                                                           Text="{Binding Value}"
+                                                                                           HorizontalTextAlignment="End"
+                                                                                           VerticalOptions="Center"/>
+                                                                             </Grid>
+                                                                      </DataTemplate>
+                                                               </CollectionView.ItemTemplate>
+                                                        </CollectionView>
+                                                 </VerticalStackLayout>
+                                          </DataTemplate>
+                                   </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                            <!-- Totales -->
+                            <VerticalStackLayout>
+                                   <Grid BackgroundColor="#23B15B"
+                                         Padding="10,7">
+                                          <Grid.ColumnDefinitions>
+                                                 <ColumnDefinition Width="*"/>
+                                                 <ColumnDefinition Width="Auto"/>
+                                          </Grid.ColumnDefinitions>
+                                          <Label Text="TOTAL"
+                                                 Style="{StaticResource DetailsNameLabel}"/>
+                                   </Grid>
+
+                                   <CollectionView ItemsSource="{Binding Totals}"
+                                                   BackgroundColor="#43D97D"
+                                                   SelectionMode="None">
+
+                                          <CollectionView.ItemsLayout>
+                                                 <LinearItemsLayout Orientation="Vertical"
+                                                                    ItemSpacing="1"/>
+                                          </CollectionView.ItemsLayout>
+
+                                          <CollectionView.ItemTemplate>
+                                                 <DataTemplate>
+                                                        <Grid Padding="8"
+                                                              BackgroundColor="White">
+                                                               <Grid.ColumnDefinitions>
+                                                                      <ColumnDefinition Width="*"/>
+                                                                      <ColumnDefinition Width="Auto"/>
+                                                               </Grid.ColumnDefinitions>
+                                                               <Label Grid.Column="0"
+                                                                      Text="{Binding ColumnHeader}"
+                                                                      Style="{StaticResource ColumnHeaderLabel}"/>
+                                                               <Label Grid.Column="1"
+                                                                      Text="{Binding Value}"
+                                                                      Style="{StaticResource ColumnHeaderLabel}"/>
+                                                        </Grid>
+                                                 </DataTemplate>
+                                          </CollectionView.ItemTemplate>
+                                   </CollectionView>
+                            </VerticalStackLayout>
                      </VerticalStackLayout>
               </ScrollView>
 

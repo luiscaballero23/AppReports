@@ -29,6 +29,13 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
+    <Color x:Key="PrimaryGreen">#23B15B</Color>
+    <Color x:Key="LightGreen">#43D97D</Color>
+    <Color x:Key="SoftGreen">#D4F8E8</Color>
+    <Color x:Key="PastelGreen">#E9F9F1</Color>
+    <Color x:Key="DarkGreen">#158443</Color>
+    <Color x:Key="MidGreen">#27C97D</Color>
+
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>

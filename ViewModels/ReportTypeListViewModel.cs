@@ -14,10 +14,10 @@ public class ReportTypeListViewModel
     {
         ReportTypes = new ObservableCollection<ReportType>
         {
-            new ReportType { Name = "Competetive Projected", Key = "competitive-projected" },
-            new ReportType { Name = "Exhibitor Market Share", Key = "exhibitor-market-share" },
-            new ReportType { Name = "Film Running", Key = "film-running" },
-            new ReportType { Name = "FRWK/MDWK", Key = "frwk-mdwk" }
+            new ReportType { Name = "Competetive Projected", Key = "competitive-projected",Icon = "ic_competitive.png" },
+            new ReportType { Name = "Exhibitor Market Share", Key = "exhibitor-market-share",Icon = "ic_competitive.png" },
+            new ReportType { Name = "Film Running", Key = "film-running",Icon = "ic_competitive.png" },
+            new ReportType { Name = "FRWK/MDWK", Key = "frwk-mdwk",Icon = "ic_competitive.png" }
         };
 
         SelectReportTypeCommand = new Command<ReportType>(OnSelectReportType);

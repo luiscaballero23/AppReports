@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using AppReports.Models;
@@ -39,6 +40,9 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
         set { _multiplexesName = value; OnPropertyChanged(); }
     }
 
+    public ObservableCollection<ReportDetail> Rooms { get; set; } = new();
+    public ObservableCollection<ColumnValue> Totals { get; set; } = new();
+
     private bool _isBusy;
     public bool IsBusy
     {
@@ -55,23 +59,23 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
          
         ReportName = _filterService.Filters.ReportName;
         ExhibitorName = _filterService.Filters.ExhibitorName;
-        MultiplexesName = _filterService.Filters.MultiplexesName;
-        LoadDataAsync();
+        MultiplexesName = _filterService.Filters.MultiplexName;
+        LoadDataAsync(_filterService.Filters.MultiplexId);
     }
 
-    private async void LoadDataAsync()
+    private async void LoadDataAsync(string multiplexId)
     {
         IsBusy = true;
         Header = await _apiService.GetReportHeaderAsync();
-        //var root = await _apiService.GetReportLevel2RootAsync(ExhibitorName);
+        var root = await _apiService.GetReportLevel3RootAsync(multiplexId);
 
-        //Multiplexes.Clear();
-        //foreach (var multiplex in root.Multiplexes)
-        //Multiplexes.Add(multiplex);
+        Rooms.Clear();
+        foreach (var multiplex in root.Rooms)
+        Rooms.Add(multiplex);
 
-        //Totals.Clear();
-        //foreach (var total in root.Totals)
-        //Totals.Add(total);
+        Totals.Clear();
+        foreach (var total in root.Totals)
+        Totals.Add(total);
 
         IsBusy = false;
     }

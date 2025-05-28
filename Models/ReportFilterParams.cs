@@ -11,6 +11,6 @@ public class ReportFilterParams
     public string SelectedOption { get; set; }
     public string ExhibitorId { get; set; }
     public string ExhibitorName { get; set; }
-    public string MultiplexesId { get; set; }
-    public string MultiplexesName { get; set; }
+    public string MultiplexId { get; set; }
+    public string MultiplexName { get; set; }
 }

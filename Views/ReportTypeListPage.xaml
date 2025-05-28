@@ -4,43 +4,68 @@
              xmlns:vm="clr-namespace:AppReports.ViewModels"
              x:Class="AppReports.Views.ReportTypeListPage"
              Title="Reportes"
+             BackgroundColor="#FAFAFA"
              x:Name="RootPage">
 
     <ContentPage.BindingContext>
         <vm:ReportTypeListViewModel/>
     </ContentPage.BindingContext>
 
-    <CollectionView ItemsSource="{Binding ReportTypes}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Grid Padding="18,8"
-                      RowSpacing="0"
-                      ColumnSpacing="8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <VerticalStackLayout>
-                        <Label Text="{Binding Name}"
-                               FontSize="22"
-                               FontAttributes="Bold"/>
-                        <Label Text="{Binding Description}"
-                               FontSize="16"
-                               LineBreakMode="WordWrap"/>
-                    </VerticalStackLayout>
-                    <Image
-                        Grid.Column="1"
-                        Source="ic_chevron_right.png"
-                        WidthRequest="28"
-                        HeightRequest="28"
-                        VerticalOptions="Center"/>
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding BindingContext.SelectReportTypeCommand, Source={x:Reference RootPage}}"
-                            CommandParameter="{Binding .}"/>
-                    </Grid.GestureRecognizers>
-                </Grid>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                Padding="16">
+            <CollectionView ItemsSource="{Binding ReportTypes}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                            ItemSpacing="16"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="24"
+                               BackgroundColor="White"
+                               HasShadow="True"
+                               Padding="0"
+                               Margin="0,0,0,16">
+                            <Grid Padding="22,18"
+                                    ColumnSpacing="16">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="64"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Ícono -->
+                                <Image Source="{Binding Icon}"
+                                        WidthRequest="48"
+                                        HeightRequest="48"
+                                        VerticalOptions="Center"/>
+                                <!-- Textos -->
+                                <VerticalStackLayout Grid.Column="1"
+                                        VerticalOptions="Center">
+                                    <Label Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           FontSize="20"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Description}"
+                                           FontSize="15"
+                                           TextColor="#666"/>
+                                </VerticalStackLayout>
+                                <!-- Flecha -->
+                                <Image Source="ic_chevron_right.png"
+                                       Grid.Column="2"
+                                       WidthRequest="28"
+                                       HeightRequest="28"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                            <!-- Comando de navegación -->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding BindingContext.SelectReportTypeCommand, Source={x:Reference RootPage}}"
+                                    CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

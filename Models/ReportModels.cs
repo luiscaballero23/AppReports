@@ -59,3 +59,12 @@ public class ReportLevel2Root
     [JsonPropertyName("totals")]
     public List<ColumnValue> Totals { get; set; }
 }
+
+public class ReportLevel3Root
+{
+    [JsonPropertyName("rooms")]
+    public List<ReportDetail> Rooms { get; set; }
+
+    [JsonPropertyName("totals")]
+    public List<ColumnValue> Totals { get; set; }
+}

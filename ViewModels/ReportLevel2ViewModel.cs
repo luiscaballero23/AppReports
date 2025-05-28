@@ -88,8 +88,8 @@ public class ReportLevel2ViewModel : INotifyPropertyChanged
         if (multiplexes == null) return;
 
         var filterService = MauiProgram.Services.GetService<IFilterService>();
-        filterService.Filters.MultiplexesId = multiplexes.Id;
-        filterService.Filters.MultiplexesName = multiplexes.Name;
+        filterService.Filters.MultiplexId = multiplexes.Id;
+        filterService.Filters.MultiplexName = multiplexes.Name;
 
         await Shell.Current.GoToAsync($"ReportLevel3Page");
     }
