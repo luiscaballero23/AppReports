@@ -78,7 +78,7 @@
                     </Grid>
                 </Frame>
 
-                <CollectionView ItemsSource="{Binding Details}"
+                <CollectionView ItemsSource="{Binding Exhibitors}"
                                 SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -143,6 +143,47 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+
+                <!-- Totales -->
+                <VerticalStackLayout>
+                    <Grid BackgroundColor="#1E4E79"
+                          Padding="10,7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="TOTAL"
+                               Style="{StaticResource DetailsNameLabel}"/>
+                    </Grid>
+
+                    <CollectionView ItemsSource="{Binding Totals}"
+                                    BackgroundColor="LightBlue"
+                                    SelectionMode="None">
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"
+                                               ItemSpacing="1"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="8"
+                                      BackgroundColor="White">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0"
+                                           Text="{Binding ColumnHeader}"
+                                           Style="{StaticResource ColumnHeaderLabel}"/>
+                                    <Label Grid.Column="1"
+                                           Text="{Binding Value}"
+                                           Style="{StaticResource ColumnHeaderLabel}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
 

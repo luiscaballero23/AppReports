@@ -49,7 +49,7 @@ public class MockApiService : IApiService
         return JsonSerializer.Deserialize<ReportHeader>(jsonHeader);
     }
 
-    public async Task<ReportDetailsRoot> GetReportDetailsRootAsync()
+    public async Task<ReportLevel1Root> GetReportDetailsRootAsync()
     {
         await Task.Delay(300); // Simula la latencia de red
 
@@ -57,7 +57,7 @@ public class MockApiService : IApiService
         using var streamDetails = assembly.GetManifestResourceStream("AppReports.Assets.report-details-exhibitors.json");
         using var readerDetails = new StreamReader(streamDetails);
         string jsonDetails = readerDetails.ReadToEnd();
-        return JsonSerializer.Deserialize<ReportDetailsRoot>(jsonDetails);
+        return JsonSerializer.Deserialize<ReportLevel1Root>(jsonDetails);
     }
 
     public async Task<ReportLevel2Root> GetReportLevel2RootAsync(string exhibitorId)

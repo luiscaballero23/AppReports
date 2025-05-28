@@ -45,10 +45,13 @@ public class ReportDetail
     public List<ColumnValue> Columns { get; set; }
 }
 
-public class ReportDetailsRoot
+public class ReportLevel1Root
 {
-    [JsonPropertyName("reportDetails")]
-    public List<ReportDetail> ReportDetails { get; set; }
+    [JsonPropertyName("exhibitors")]
+    public List<ReportDetail> Exhibitors { get; set; }
+
+    [JsonPropertyName("totals")]
+    public List<ColumnValue> Totals { get; set; }
 }
 
 public class ReportLevel2Root

@@ -22,7 +22,9 @@ public class ReportLevel1ViewModel : INotifyPropertyChanged
         get => _header;
         set { _header = value; OnPropertyChanged(); }
     }
-    public ObservableCollection<ReportDetail> Details { get; set; } = new();
+
+    public ObservableCollection<ReportDetail> Exhibitors { get; set; } = new();
+    public ObservableCollection<ColumnValue> Totals { get; set; } = new();
 
     private bool _isBusy;
     public bool IsBusy
@@ -47,11 +49,15 @@ public class ReportLevel1ViewModel : INotifyPropertyChanged
     {
         IsBusy = true;
         Header = await _apiService.GetReportHeaderAsync();
-        var rootDetails = await _apiService.GetReportDetailsRootAsync();
+        var root = await _apiService.GetReportDetailsRootAsync();
 
-        Details.Clear();
-        foreach (var detail in rootDetails.ReportDetails)
-            Details.Add(detail);
+        Exhibitors.Clear();
+        foreach (var multiplex in root.Exhibitors)
+            Exhibitors.Add(multiplex);
+
+        Totals.Clear();
+        foreach (var total in root.Totals)
+            Totals.Add(total);
 
         IsBusy = false;
     }
