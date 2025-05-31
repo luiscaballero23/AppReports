@@ -208,7 +208,7 @@
     <Style TargetType="Label" x:Key="HeaderLabel">
         <Setter Property="FontAttributes" Value="Bold" />
         <Setter Property="FontFamily" Value="Arial" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
     </Style>
 
     <Style TargetType="Label" x:Key="ColumnHeaderLabel">
