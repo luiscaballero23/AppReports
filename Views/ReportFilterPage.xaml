@@ -3,56 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:AppReports.ViewModels"            
              x:Class="AppReports.Views.ReportFilterPage"
-             Title="Filtrar Reportes"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             Title="Filtrar Reportes">
 
     <ScrollView>
-        <VerticalStackLayout Padding="32,48,32,0" Spacing="22">
-            <!-- Selector de película -->
-            <Label Text="Película"
-                   FontSize="16"
-                   Margin="0,12,0,6"/>
-            <Picker Title="Película"
-                    ItemsSource="{Binding Movies}"
-                    ItemDisplayBinding="{Binding Name}"
-                    SelectedItem="{Binding SelectedMovie}" />
+        <VerticalStackLayout Padding="10,20,10,0" Spacing="0">
+            <!-- Card de filtros -->
+            <Frame CornerRadius="18"
+                   BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray600}}"
+                   HasShadow="True"
+                   Padding="24,30"
+                   Margin="0,0,0,36">
+                <VerticalStackLayout Spacing="26">
+                    <!-- Selector de película -->
+                    <Label Text="Película"
+                           FontSize="16"
+                           Style="{StaticResource HeaderLabel}"/>
+                    <Picker Title="Selecciona una película"
+                            ItemsSource="{Binding Movies}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding SelectedMovie}"
+                            FontSize="15"
+                            HeightRequest="44"
+                            Margin="0,0,0,8"/>
 
-            <!-- Rango de fechas -->
-            <Label Text="Rango de fechas"
-                   FontSize="16"
-                   Margin="0,12,0,6"/>
-            <HorizontalStackLayout Spacing="10">
-                <VerticalStackLayout>
-                    <Label Text="Desde:" FontSize="14"/>
-                    <DatePicker Date="{Binding DateFrom}" Format="yyyy-MM-dd"/>
+                    <!-- Rango de fechas -->
+                    <Label Text="Rango de fechas"
+                           FontSize="16"
+                           Style="{StaticResource HeaderLabel}"/>
+                    <HorizontalStackLayout Spacing="20">
+                        <VerticalStackLayout>
+                            <Label Text="Desde:" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+                            <DatePicker Date="{Binding DateFrom}" Format="yyyy-MM-dd"
+                                        HeightRequest="42"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout>
+                            <Label Text="Hasta:" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+                            <DatePicker Date="{Binding DateTo}" Format="yyyy-MM-dd"
+                                        HeightRequest="42"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+
+                    <!-- Opciones -->
+                    <Label Text="Opción"
+                           FontSize="16"
+                           Style="{StaticResource HeaderLabel}"
+                           Margin="0,6,0,0"/>
+                    <HorizontalStackLayout Spacing="22" Margin="0,0,0,8">
+                        <RadioButton Content="BO" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=BO}" />
+                        <RadioButton Content="Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Adms}" />
+                        <RadioButton Content="BO y Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Both}" />
+                    </HorizontalStackLayout>
+
+                    <!-- Botón consultar -->
+                    <Button Text="CONSULTAR"
+                            Command="{Binding SearchCommand}"
+                            BackgroundColor="#3588F4"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            CornerRadius="14"
+                            HeightRequest="54"
+                            Margin="0,18,0,0"
+                            Shadow="2"
+                            HorizontalOptions="FillAndExpand"/>
                 </VerticalStackLayout>
-                <VerticalStackLayout>
-                    <Label Text="Hasta:" FontSize="14"/>
-                    <DatePicker Date="{Binding DateTo}" Format="yyyy-MM-dd"/>
-                </VerticalStackLayout>
-            </HorizontalStackLayout>
-
-            <!-- Opciones -->
-            <Label Text="Opción"
-                   FontSize="16"
-                   Margin="0,12,0,6"/>
-            <HorizontalStackLayout Spacing="16">
-                <RadioButton Content="BO" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=BO}" GroupName="Option"/>
-                <RadioButton Content="Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Adms}" GroupName="Option"/>
-                <RadioButton Content="BO y Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Both}" GroupName="Option"/>
-            </HorizontalStackLayout>
-
-            <!-- Botón consultar -->
-            <Button Text="CONSULTAR"
-                    Command="{Binding SearchCommand}"
-                    BackgroundColor="#3588F4"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    CornerRadius="12"
-                    HeightRequest="52"
-                    Margin="0,24,0,0"
-                    HorizontalOptions="FillAndExpand"/>
+            </Frame>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
