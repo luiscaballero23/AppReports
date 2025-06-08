@@ -13,8 +13,11 @@ public class ReportLevel1ViewModel : INotifyPropertyChanged
 {
     private readonly IApiService _apiService;
     private readonly IFilterService _filterService;
-    public ReportFilterParams Filters => _filterService.Filters;
-    public string ReportName { get; set; }
+    public string ReportName
+    {
+        get => _filterService.Filters.ReportName;
+        set { _filterService.Filters.ReportName = value; OnPropertyChanged(); }
+    }
 
     private ReportHeader _header;
     public ReportHeader Header

@@ -5,11 +5,6 @@
              x:Class="AppReports.Views.ReportTypeListPage"
              Title="Reportes"
              x:Name="RootPage">
-
-    <ContentPage.BindingContext>
-        <vm:ReportTypeListViewModel/>
-    </ContentPage.BindingContext>
-
     <ScrollView>
         <VerticalStackLayout Spacing="20"
                 Padding="16">

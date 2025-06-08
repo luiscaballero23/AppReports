@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:AppReports.ViewModels"            
              x:Class="AppReports.Views.ReportFilterPage"
-             Title="Filtrar Reportes">
+             Title="{Binding ReportName}">
 
     <ScrollView>
         <VerticalStackLayout Padding="10,20,10,0" Spacing="0">

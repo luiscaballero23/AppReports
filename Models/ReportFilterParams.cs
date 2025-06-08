@@ -4,6 +4,7 @@ namespace AppReports.Models;
 
 public class ReportFilterParams
 {
+    public string ReportId { get; set; }
     public string ReportName { get; set; }
     public int? MovieId { get; set; }
     public DateTime? DateFrom { get; set; }

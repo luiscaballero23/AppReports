@@ -12,11 +12,10 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
     private readonly IApiService _apiService;
     private readonly IFilterService _filterService;
 
-    private string _reportName;
     public string ReportName
     {
-        get => _reportName;
-        set { _reportName = value; OnPropertyChanged(); }
+        get => _filterService.Filters.ReportName;
+        set { _filterService.Filters.ReportName = value; OnPropertyChanged(); }
     }
 
     private ReportHeader _header;
@@ -56,8 +55,7 @@ public class ReportLevel3ViewModel : INotifyPropertyChanged
     {
         _apiService = new MockApiService();
         _filterService = filterService;
-         
-        ReportName = _filterService.Filters.ReportName;
+
         ExhibitorName = _filterService.Filters.ExhibitorName;
         MultiplexesName = _filterService.Filters.MultiplexName;
         LoadDataAsync(_filterService.Filters.MultiplexId);
