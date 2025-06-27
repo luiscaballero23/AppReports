@@ -63,9 +63,7 @@
                             FontSize="18"
                             CornerRadius="14"
                             HeightRequest="54"
-                            Margin="0,18,0,0"
-                            Shadow="2"
-                            HorizontalOptions="FillAndExpand"/>
+                            Margin="0,18,0,0"/>
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
