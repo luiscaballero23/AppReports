@@ -3,8 +3,8 @@
 # min_api: 21
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: e8455b4
-# pg_map_hash: SHA-256 e8455b4623be2ba7596484fc142603495413ac2b975641bafdb1e5b967d34282
+# pg_map_id: f4d3929
+# pg_map_hash: SHA-256 f4d39294ae3d4e25c2b69f936793e1b5e36f6b3f648cefbbc668677d7658c681
 _COROUTINE.ArtificialStackFrames -> _COROUTINE.ArtificialStackFrames:
 # {"id":"sourceFile","fileName":"CoroutineDebugging.kt"}
     17:17:void <init>() -> <init>
@@ -58727,7 +58727,12 @@ androidx.core.view.ViewStructureCompat$Api23Impl -> androidx.core.view.ViewStruc
     158:158:void setText(android.view.ViewStructure,java.lang.CharSequence) -> setText
 androidx.core.view.WindowCompat -> androidx.core.view.WindowCompat:
 # {"id":"sourceFile","fileName":"WindowCompat.java"}
+    68:68:void <init>() -> <init>
     137:137:androidx.core.view.WindowInsetsControllerCompat getInsetsController(android.view.Window,android.view.View) -> getInsetsController
+    89:89:android.view.View requireViewById(android.view.Window,int) -> requireViewById
+    90:90:android.view.View requireViewById(android.view.Window,int) -> requireViewById
+    93:93:android.view.View requireViewById(android.view.Window,int) -> requireViewById
+    95:95:android.view.View requireViewById(android.view.Window,int) -> requireViewById
     118:118:void setDecorFitsSystemWindows(android.view.Window,boolean) -> setDecorFitsSystemWindows
     119:119:void setDecorFitsSystemWindows(android.view.Window,boolean) -> setDecorFitsSystemWindows
     121:121:void setDecorFitsSystemWindows(android.view.Window,boolean) -> setDecorFitsSystemWindows
@@ -58737,6 +58742,9 @@ androidx.core.view.WindowCompat$Api16Impl -> androidx.core.view.WindowCompat$Api
     151:151:void setDecorFitsSystemWindows(android.view.Window,boolean) -> setDecorFitsSystemWindows
     152:152:void setDecorFitsSystemWindows(android.view.Window,boolean) -> setDecorFitsSystemWindows
     153:153:void setDecorFitsSystemWindows(android.view.Window,boolean) -> setDecorFitsSystemWindows
+androidx.core.view.WindowCompat$Api28Impl -> androidx.core.view.WindowCompat$Api28Impl:
+# {"id":"sourceFile","fileName":"WindowCompat.java"}
+    198:198:java.lang.Object requireViewById(android.view.Window,int) -> requireViewById
 androidx.core.view.WindowCompat$Api30Impl -> androidx.core.view.WindowCompat$Api30Impl:
 # {"id":"sourceFile","fileName":"WindowCompat.java"}
     169:169:void setDecorFitsSystemWindows(android.view.Window,boolean) -> setDecorFitsSystemWindows
@@ -197958,6 +197966,62 @@ crc640ec207abc449b2ca.ShellToolbarTracker_FlyoutIconDrawerDrawable -> crc640ec20
     38:38:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
     43:43:void monodroidClearReferences() -> monodroidClearReferences
     44:44:void monodroidClearReferences() -> monodroidClearReferences
+crc64159f3caeb1269279.MauiDrawingView -> crc64159f3caeb1269279.MauiDrawingView:
+# {"id":"sourceFile","fileName":"MauiDrawingView.java"}
+    15:15:void <clinit>() -> <clinit>
+    20:20:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    21:21:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    22:22:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    28:28:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    29:29:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    30:30:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    36:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    37:37:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    38:38:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    44:44:void <init>(android.content.Context) -> <init>
+    45:45:void <init>(android.content.Context) -> <init>
+    46:46:void <init>(android.content.Context) -> <init>
+    60:60:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    61:61:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    62:62:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    67:67:void monodroidClearReferences() -> monodroidClearReferences
+    68:68:void monodroidClearReferences() -> monodroidClearReferences
+    52:52:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+crc64159f3caeb1269279.MauiPopup -> crc64159f3caeb1269279.MauiPopup:
+# {"id":"sourceFile","fileName":"MauiPopup.java"}
+    18:18:void <clinit>() -> <clinit>
+    23:23:void <init>(android.content.Context) -> <init>
+    24:24:void <init>(android.content.Context) -> <init>
+    25:25:void <init>(android.content.Context) -> <init>
+    53:53:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    54:54:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    55:55:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    60:60:void monodroidClearReferences() -> monodroidClearReferences
+    61:61:void monodroidClearReferences() -> monodroidClearReferences
+    45:45:void onCancel(android.content.DialogInterface) -> onCancel
+    38:38:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    31:31:void show() -> show
+crc64159f3caeb1269279.MauiSemanticOrderView -> crc64159f3caeb1269279.MauiSemanticOrderView:
+# {"id":"sourceFile","fileName":"MauiSemanticOrderView.java"}
+    15:15:void <clinit>() -> <clinit>
+    20:20:void <init>(android.content.Context) -> <init>
+    21:21:void <init>(android.content.Context) -> <init>
+    22:22:void <init>(android.content.Context) -> <init>
+    28:28:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    29:29:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    30:30:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    36:36:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    37:37:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    38:38:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    44:44:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    45:45:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    46:46:void <init>(android.content.Context,android.util.AttributeSet,int,int) -> <init>
+    60:60:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    61:61:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    62:62:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    67:67:void monodroidClearReferences() -> monodroidClearReferences
+    68:68:void monodroidClearReferences() -> monodroidClearReferences
+    52:52:void onLayout(boolean,int,int,int,int) -> onLayout
 crc64338477404e88479c.ColorChangeRevealDrawable -> crc64338477404e88479c.ColorChangeRevealDrawable:
 # {"id":"sourceFile","fileName":"ColorChangeRevealDrawable.java"}
     15:15:void <clinit>() -> <clinit>
@@ -198237,6 +198301,30 @@ crc64338477404e88479c.ToolbarExtensions_ToolbarTitleIconImageView -> crc64338477
     46:46:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
     51:51:void monodroidClearReferences() -> monodroidClearReferences
     52:52:void monodroidClearReferences() -> monodroidClearReferences
+crc6436e425876cb621d9.FragmentLifecycleManager -> crc6436e425876cb621d9.FragmentLifecycleManager:
+# {"id":"sourceFile","fileName":"FragmentLifecycleManager.java"}
+    27:27:void <clinit>() -> <clinit>
+    32:32:void <init>() -> <init>
+    33:33:void <init>() -> <init>
+    34:34:void <init>() -> <init>
+    132:132:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    133:133:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    134:134:void monodroidAddReference(java.lang.Object) -> monodroidAddReference
+    139:139:void monodroidClearReferences() -> monodroidClearReferences
+    140:140:void monodroidClearReferences() -> monodroidClearReferences
+    40:40:void onFragmentAttached(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment,android.content.Context) -> onFragmentAttached
+    47:47:void onFragmentCreated(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment,android.os.Bundle) -> onFragmentCreated
+    54:54:void onFragmentDestroyed(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment) -> onFragmentDestroyed
+    61:61:void onFragmentDetached(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment) -> onFragmentDetached
+    68:68:void onFragmentPaused(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment) -> onFragmentPaused
+    75:75:void onFragmentPreAttached(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment,android.content.Context) -> onFragmentPreAttached
+    82:82:void onFragmentPreCreated(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment,android.os.Bundle) -> onFragmentPreCreated
+    89:89:void onFragmentResumed(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment) -> onFragmentResumed
+    96:96:void onFragmentSaveInstanceState(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment,android.os.Bundle) -> onFragmentSaveInstanceState
+    103:103:void onFragmentStarted(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment) -> onFragmentStarted
+    110:110:void onFragmentStopped(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment) -> onFragmentStopped
+    117:117:void onFragmentViewCreated(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment,android.view.View,android.os.Bundle) -> onFragmentViewCreated
+    124:124:void onFragmentViewDestroyed(androidx.fragment.app.FragmentManager,androidx.fragment.app.Fragment) -> onFragmentViewDestroyed
 crc643f2b18b2570eaa5a.PlatformGraphicsView -> crc643f2b18b2570eaa5a.PlatformGraphicsView:
 # {"id":"sourceFile","fileName":"PlatformGraphicsView.java"}
     16:16:void <clinit>() -> <clinit>
@@ -212063,7 +212151,7 @@ mono.MonoPackageManager$$ExternalSyntheticApiModelOutline2 -> mono.MonoPackageMa
 mono.MonoPackageManager_Resources -> mono.MonoPackageManager_Resources:
 # {"id":"sourceFile","fileName":"MonoPackageManager_Resources.java"}
     3:3:void <clinit>() -> <clinit>
-    161:161:void <clinit>() -> <clinit>
+    165:165:void <clinit>() -> <clinit>
     0:0:void <init>() -> <init>
 mono.MonoRuntimeProvider -> mono.MonoRuntimeProvider:
 # {"id":"sourceFile","fileName":"MonoRuntimeProvider.java"}
