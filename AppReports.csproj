@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>AppReports</ApplicationTitle>
+		<ApplicationTitle>CadBox</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>co.luiscaballero.appreports</ApplicationId>
@@ -46,8 +46,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<MauiIcon Include="AppAssets\AppIcon\appicon.svg" ForegroundFile="AppAssets\AppIcon\appiconfg.svg" Color="#512BD4" />
-		<MauiSplashScreen Include="AppAssets\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiIcon Include="AppAssets\AppIcon\appicon.png" ForegroundFile="AppAssets\AppIcon\appiconfg_cadbox.png" Color="#512BD4" />
+		<MauiSplashScreen Include="AppAssets\Splash\splash_cadbox.png" Color="#EFEFEF" BaseSize="128,128" />
 		<MauiImage Include="AppAssets\Images\*" />
 		<MauiFont Include="AppAssets\Fonts\*" />
 		<MauiAsset Include="AppAssets\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
