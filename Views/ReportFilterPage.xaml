@@ -17,14 +17,16 @@
                     <!-- Selector de película -->
                     <Label Text="Película"
                            FontSize="16"
-                           Style="{StaticResource HeaderLabel}"/>
+                           Style="{StaticResource HeaderLabel}"
+                           IsVisible="{Binding IsMovieVisible}"/>
                     <Picker Title="Selecciona una película"
                             ItemsSource="{Binding Movies}"
                             ItemDisplayBinding="{Binding Name}"
                             SelectedItem="{Binding SelectedMovie}"
                             FontSize="15"
                             HeightRequest="44"
-                            Margin="0,0,0,8"/>
+                            Margin="0,0,0,8"
+                            IsVisible="{Binding IsMovieVisible}"/>
 
                     <!-- Rango de fechas -->
                     <Label Text="Rango de fechas"
@@ -47,11 +49,22 @@
                     <Label Text="Opción"
                            FontSize="16"
                            Style="{StaticResource HeaderLabel}"
-                           Margin="0,6,0,0"/>
-                    <HorizontalStackLayout Spacing="22" Margin="0,0,0,8">
+                           Margin="0,6,0,0"
+                           IsVisible="{Binding IsOptionMarketVisible}" />
+                    <HorizontalStackLayout Spacing="22" Margin="0,0,0,8" IsVisible="{Binding IsOptionMarketVisible}">
                         <RadioButton Content="BO" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=BO}" />
                         <RadioButton Content="Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Adms}" />
                         <RadioButton Content="BO y Adms" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Both}" />
+                    </HorizontalStackLayout>
+
+                    <Label Text="Opción"
+                           FontSize="16"
+                           Style="{StaticResource HeaderLabel}"
+                           Margin="0,6,0,0"
+                           IsVisible="{Binding IsOptionCompetitiveVisible}" />
+                    <HorizontalStackLayout Spacing="22" Margin="0,0,0,8" IsVisible="{Binding IsOptionCompetitiveVisible}">
+                        <RadioButton Content="Título original" IsChecked="{Binding SelectedTitleOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Original}" />
+                        <RadioButton Content="Título local" IsChecked="{Binding SelectedTitleOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Local}" />
                     </HorizontalStackLayout>
 
                     <!-- Botón consultar -->
@@ -64,6 +77,12 @@
                             CornerRadius="14"
                             HeightRequest="54"
                             Margin="0,18,0,0"/>
+                    
+                    <Label Text="{Binding Message}"
+                                          TextColor="Red"
+                                          IsVisible="{Binding ShowMessage}"
+                                          HorizontalOptions="Center"
+                                          FontSize="14"/>
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>

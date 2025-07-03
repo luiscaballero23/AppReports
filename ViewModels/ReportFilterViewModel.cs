@@ -13,6 +13,7 @@ public class ReportFilterViewModel : INotifyPropertyChanged
     private readonly IApiService _apiService;
     private readonly IFilterService _filterService;
     public ObservableCollection<Movie> Movies { get; set; } = new();
+
     public string ReportName
     {
         get => _filterService.Filters.ReportName;
@@ -49,6 +50,20 @@ public class ReportFilterViewModel : INotifyPropertyChanged
         set { _filterService.Filters.SelectedOption = value; OnPropertyChanged(); }
     }
 
+    private string _message;
+    public string Message
+    {
+        get => _message;
+        set { _message = value; OnPropertyChanged(); }
+    }
+
+    private bool _showMessage;
+    public bool ShowMessage
+    {
+        get => _showMessage;
+        set { _showMessage = value; OnPropertyChanged(); }
+    }
+
     public ICommand SearchCommand { get; }
 
     public ReportFilterViewModel(IFilterService filterService)
@@ -58,6 +73,8 @@ public class ReportFilterViewModel : INotifyPropertyChanged
         LoadMoviesAsync();
 
         SearchCommand = new Command(OnSearch);
+
+        ConfigureForReport(_filterService.Filters.ReportId);
     }
 
     private async void LoadMoviesAsync()
@@ -73,10 +90,42 @@ public class ReportFilterViewModel : INotifyPropertyChanged
 
     private async void OnSearch()
     {
-        if (!_filterService.Filters.MovieId.HasValue || string.IsNullOrWhiteSpace(SelectedOption))
+        if (IsMovieVisible && !_filterService.Filters.MovieId.HasValue)
+        {
+            Message = "Please select a movie";
+            ShowMessage = true;
             return;
+        }
+
+        if (IsOptionMarketVisible && string.IsNullOrWhiteSpace(SelectedOption))
+        {
+            Message = "Please select an option";
+            ShowMessage = true;
+            return;
+        }
+
+        if (IsOptionCompetitiveVisible && string.IsNullOrWhiteSpace(SelectedOption))
+        {
+            Message = "Please select an option";
+            ShowMessage = true;
+            return;
+        }
 
         await Shell.Current.GoToAsync($"ReportLevel1Page");
+    }
+
+    public bool IsMovieVisible { get; set; } = false;
+    public bool IsOptionMarketVisible { get; set; } = false;
+    public bool IsOptionCompetitiveVisible { get; set; } = false;
+
+    public void ConfigureForReport(string reportType)
+    {
+        IsMovieVisible = reportType == "exhibitor-market-share";
+        IsOptionMarketVisible = reportType == "exhibitor-market-share";
+        IsOptionCompetitiveVisible = reportType == "competitive-projected";
+        OnPropertyChanged(nameof(IsMovieVisible));
+        OnPropertyChanged(nameof(IsOptionMarketVisible));
+        OnPropertyChanged(nameof(IsOptionCompetitiveVisible));
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
