@@ -43,6 +43,15 @@ public class ReportLevel1ViewModel : INotifyPropertyChanged
     public ReportLevel1ViewModel(IFilterService filterService)
     {
         _filterService = filterService;
+
+        var reportId = _filterService.Filters.ReportId;
+        var reportName = _filterService.Filters.ReportName;
+        var movieId = _filterService.Filters.MovieId;
+        var dateFrom = _filterService.Filters.DateFrom;
+        var dateTo = _filterService.Filters.DateTo;
+        var option = _filterService.Filters.SelectedOption;
+
+
         _apiService = new MockApiService();
         GoToLevel2Command = new Command<ReportDetail>(OnGoToLevel2);
         LoadDataAsync();

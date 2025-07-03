@@ -31,8 +31,9 @@
                     <!-- Rango de fechas -->
                     <Label Text="Rango de fechas"
                            FontSize="16"
-                           Style="{StaticResource HeaderLabel}"/>
-                    <HorizontalStackLayout Spacing="20">
+                           Style="{StaticResource HeaderLabel}"
+                           IsVisible="{Binding IsDateRangeVisible}"/>
+                    <HorizontalStackLayout Spacing="20" IsVisible="{Binding IsDateRangeVisible}">
                         <VerticalStackLayout>
                             <Label Text="Desde:" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
                             <DatePicker Date="{Binding DateFrom}" Format="yyyy-MM-dd"
@@ -63,8 +64,18 @@
                            Margin="0,6,0,0"
                            IsVisible="{Binding IsOptionCompetitiveVisible}" />
                     <HorizontalStackLayout Spacing="22" Margin="0,0,0,8" IsVisible="{Binding IsOptionCompetitiveVisible}">
-                        <RadioButton Content="Título original" IsChecked="{Binding SelectedTitleOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Original}" />
-                        <RadioButton Content="Título local" IsChecked="{Binding SelectedTitleOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Local}" />
+                        <RadioButton Content="Título original" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Original}" />
+                        <RadioButton Content="Título local" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=Local}" />
+                    </HorizontalStackLayout>
+
+                    <Label Text="Opción"
+                           FontSize="16"
+                           Style="{StaticResource HeaderLabel}"
+                           Margin="0,6,0,0"
+                           IsVisible="{Binding IsOptionFrwkVisible}" />
+                    <HorizontalStackLayout Spacing="22" Margin="0,0,0,8" IsVisible="{Binding IsOptionFrwkVisible}">
+                        <RadioButton Content="MPA" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=MPA}" />
+                        <RadioButton Content="ALL" IsChecked="{Binding SelectedOption, Mode=TwoWay, Converter={StaticResource OptionToBoolConverter}, ConverterParameter=ALL}" />
                     </HorizontalStackLayout>
 
                     <!-- Botón consultar -->

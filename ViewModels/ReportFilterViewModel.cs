@@ -73,6 +73,7 @@ public class ReportFilterViewModel : INotifyPropertyChanged
         LoadMoviesAsync();
 
         SearchCommand = new Command(OnSearch);
+        SelectedOption = null; OnPropertyChanged(nameof(SelectedOption));
 
         ConfigureForReport(_filterService.Filters.ReportId);
     }
@@ -90,42 +91,85 @@ public class ReportFilterViewModel : INotifyPropertyChanged
 
     private async void OnSearch()
     {
-        if (IsMovieVisible && !_filterService.Filters.MovieId.HasValue)
+        Message = "";
+        ShowMessage = false;
+
+        var reportId = _filterService.Filters.ReportId;
+        if (string.IsNullOrWhiteSpace(reportId))
         {
-            Message = "Please select a movie";
+            Message = "Please select a report";
             ShowMessage = true;
             return;
         }
 
-        if (IsOptionMarketVisible && string.IsNullOrWhiteSpace(SelectedOption))
+        if (reportId == "competitive-projected")
         {
-            Message = "Please select an option";
-            ShowMessage = true;
-            return;
+            if (string.IsNullOrWhiteSpace(SelectedOption))
+            {
+                Message = "Please select an option";
+                ShowMessage = true;
+                return;
+            }
         }
 
-        if (IsOptionCompetitiveVisible && string.IsNullOrWhiteSpace(SelectedOption))
+        if (reportId == "exhibitor-market-share")
         {
-            Message = "Please select an option";
-            ShowMessage = true;
-            return;
+            if (!_filterService.Filters.MovieId.HasValue)
+            {
+                Message = "Please select a movie";
+                ShowMessage = true;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(SelectedOption))
+            {
+                Message = "Please select an option";
+                ShowMessage = true;
+                return;
+            }
+        }
+
+        if (reportId == "film-running")
+        {
+            if (!_filterService.Filters.MovieId.HasValue)
+            {
+                Message = "Please select a movie";
+                ShowMessage = true;
+                return;
+            }
+        }
+
+        if (reportId == "frwk-mdwk")
+        {
+            if (string.IsNullOrWhiteSpace(SelectedOption))
+            {
+                Message = "Please select an option";
+                ShowMessage = true;
+                return;
+            }
         }
 
         await Shell.Current.GoToAsync($"ReportLevel1Page");
     }
 
-    public bool IsMovieVisible { get; set; } = false;
-    public bool IsOptionMarketVisible { get; set; } = false;
-    public bool IsOptionCompetitiveVisible { get; set; } = false;
+    public bool IsMovieVisible { get; set; } 
+    public bool IsDateRangeVisible { get; set; } = true;
+    public bool IsOptionMarketVisible { get; set; } 
+    public bool IsOptionCompetitiveVisible { get; set; }
+    public bool IsOptionFrwkVisible { get; set; }
 
     public void ConfigureForReport(string reportType)
     {
-        IsMovieVisible = reportType == "exhibitor-market-share";
+        IsMovieVisible = reportType == "exhibitor-market-share" || reportType == "film-running";
+        IsDateRangeVisible = reportType == "exhibitor-market-share" || reportType == "competitive-projected" || reportType == "frwk-mdwk";
         IsOptionMarketVisible = reportType == "exhibitor-market-share";
         IsOptionCompetitiveVisible = reportType == "competitive-projected";
+        IsOptionFrwkVisible = reportType == "frwk-mdwk";
         OnPropertyChanged(nameof(IsMovieVisible));
+        OnPropertyChanged(nameof(IsDateRangeVisible));
         OnPropertyChanged(nameof(IsOptionMarketVisible));
         OnPropertyChanged(nameof(IsOptionCompetitiveVisible));
+        OnPropertyChanged(nameof(IsOptionFrwkVisible));
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
