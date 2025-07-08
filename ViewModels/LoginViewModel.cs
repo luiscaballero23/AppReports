@@ -53,6 +53,8 @@ public class LoginViewModel : INotifyPropertyChanged
         var user = await _apiService.LoginAsync(Username, Password);
         if (user != null)
         {     
+            await SecureStorage.SetAsync("user", Username);
+            await SecureStorage.SetAsync("pass", Password);
             Application.Current.MainPage = new AppShell();       
             //await Shell.Current.GoToAsync("//ReportTypeListPage");
         }

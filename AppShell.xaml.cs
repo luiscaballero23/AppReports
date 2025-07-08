@@ -24,6 +24,8 @@ public partial class AppShell : Shell
 
         if (confirm)
         {
+            await SecureStorage.SetAsync("user", "");
+            await SecureStorage.SetAsync("pass", "");
             (Application.Current as App).MainPage = new NavigationPage(new LoginPage());
         }
     }
